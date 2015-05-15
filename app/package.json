@@ -1,0 +1,26 @@
+{
+  "name": "pam",
+  "version": "0.0.1",
+  "description": "EEA database on climate change mitigation policies and measures in Europe",
+  "dependencies" : {
+    "nconf": "*",
+    "express": "*",
+    "jade": "*",
+    "eea-searchserver": "*",
+    "morgan": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eea/eea.docker.pam.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "EEA",
+    "Elastic",
+    "PAM"
+  ],
+  "author": "Zoltan Szabo",
+  "license": "GPL-2.0",
+  "readmeFilename": "README.md"
+}
