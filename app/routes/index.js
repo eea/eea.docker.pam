@@ -2,12 +2,13 @@
  * GET home page.
  */
 
+var field_base='http://semantic.eea.europa.eu/project/pam/pam2014.csv#'
+
 var nconf = require('nconf');
 nconf.file({file:'config.json'});
-var field_base = nconf.get("es:field_base");
-var es_host = nconf.get("es:host");
-var es_path = nconf.get("es:path");
-var base_path = nconf.get("http:base_path");
+var path = require('path');
+
+var fs = require('fs');
 
 var fieldsMapping = [
     {'name' : 'pam_2015_EU_ETS_kt_CO2', 'field' : field_base + '2015_EU_ETS_kt_CO2', 'title' : '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -64,14 +65,22 @@ var fieldsMapping = [
 ];
 
 exports.index = function(req, res){
+  var templatePath = nconf.get('external_templates:local_path');
   res.render('index', {title: 'PAM',
-                       base_path: base_path,
-                       es_host: es_host,
-                       es_path: es_path,
-                       field_base: field_base});
+//                       base_path: base_path,
+//                       es_host: es_host,
+//                       es_path: es_path,
+                       field_base: field_base,
+                       'headFile': path.join(templatePath, 'head.html'),
+                       'headerFile': path.join(templatePath, 'header.html'),
+                       'footerFile': path.join(templatePath, 'footer.html'),
+                       'templateRender': fs.readFileSync});
 };
 
 exports.details = function(req, res){
+  var templatePath = nconf.get('external_templates:local_path');
+  var full_url = req.protocol + '://' + req.get('host') + req.originalUrl;
+  var base_url = full_url.split("/details?pamid")[0];
   if (req.query.pamid === undefined){
       res.send('pamid is missing');
       return;
@@ -82,11 +91,11 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
   var options = {
-    host: es_host,
-    path: es_path + "?source="+ query
+    host: base_url+"/api",
+    path: "?source="+ query
   };
 
-  request("http://"+options.host + options.path, function (error, response, body) {
+  request(options.host + options.path, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         try{
             var data = JSON.parse(body);
@@ -95,7 +104,6 @@ exports.details = function(req, res){
 
             for ( var item = 0; item < data.hits.hits.length; item++ ) {
                 tmp_resultobj["records"].push(data.hits.hits[item]._source);
-                console.log(data.hits.hits[item]._id)
                 tmp_resultobj["records"][tmp_resultobj["records"].length - 1]._id = data.hits.hits[item]._id;
             }
             resultobj = {};
@@ -104,17 +112,26 @@ exports.details = function(req, res){
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
             res.render('details', {data: resultobj,
-                                   base_path: base_path,
-                                   es_host: es_host,
-                                   es_path: es_path,
-                                   field_base: field_base});
+//                                   base_path: base_path,
+//                                   es_host: es_host,
+//                                   es_path: es_path,
+//                                   field_base: field_base,
+        'headFile': path.join(templatePath, 'head.html'),
+        'headerFile': path.join(templatePath, 'header.html'),
+        'footerFile': path.join(templatePath, 'footer.html'),
+        'templateRender': fs.readFileSync});
         }
         catch(err){
             res.render('details', {data: "",
-                                   base_path: base_path,
-                                   es_host: es_host,
-                                   es_path: es_path,
-                                   field_base: field_base});
+//                                   base_path: base_path,
+//                                   es_host: es_host,
+//                                   es_path: es_path,
+//                                   field_base: field_base,
+        'headFile': path.join(templatePath, 'head.html'),
+        'headerFile': path.join(templatePath, 'header.html'),
+        'footerFile': path.join(templatePath, 'footer.html'),
+        'templateRender': fs.readFileSync
+});
         }
 
     }

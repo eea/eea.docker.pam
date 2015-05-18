@@ -9,21 +9,21 @@ html
             var es_path="#{es_path}";
             var field_base="#{field_base}";
         link(rel="shortcut icon", type="image/x-icon", href="http://www.eea.europa.eu/favicon.ico")
-        link(rel='stylesheet', href='#{base_path}stylesheets/bootstrap.min.css')
-        link(rel='stylesheet', href='#{base_path}stylesheets/facetview.css')
-        link(rel='stylesheet', href='#{base_path}stylesheets/style.css')
+        link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='stylesheets/facetview.css')
+        link(rel='stylesheet', href='stylesheets/style.css')
 
-        link(rel='stylesheet', href='#{base_path}stylesheets/jquery-ui-1.8.18.custom.css')
+        link(rel='stylesheet', href='stylesheets/jquery-ui-1.8.18.custom.css')
 
-        script(type='text/javascript', src='#{base_path}javascripts/jquery-1.7.1.min.js')
-        script(type='text/javascript', src='#{base_path}javascripts/bootstrap.min.js')
-        script(type='text/javascript', src='#{base_path}javascripts/jquery.tools.min.js')
-        script(type='text/javascript', src='#{base_path}javascripts/jquery.facetview.js')
-        script(type='text/javascript', src='#{base_path}javascripts/jquery.linkify-1.0-min.js')
-        script(type='text/javascript', src='#{base_path}javascripts/jquery-ui-1.8.18.custom.min.js')
+        script(type='text/javascript', src='javascripts/jquery-1.7.1.min.js')
+        script(type='text/javascript', src='javascripts/bootstrap.min.js')
+        script(type='text/javascript', src='javascripts/jquery.tools.min.js')
+        script(type='text/javascript', src='javascripts/jquery.facetview.js')
+        script(type='text/javascript', src='javascripts/jquery.linkify-1.0-min.js')
+        script(type='text/javascript', src='javascripts/jquery-ui-1.8.18.custom.min.js')
         script(type='text/javascript').
             var base_path = "#{base_path}";
-        script(type='text/javascript', src='#{base_path}javascripts/pam.facetview.js')
+        script(type='text/javascript', src='javascripts/pam.facetview.js')
     body
         != templateRender(headerFile)
         div(id="visual-portal-wrapper")

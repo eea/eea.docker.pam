@@ -1,3 +1,5 @@
+var field_base='http://semantic.eea.europa.eu/project/pam/pam2014.csv#'
+
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
     var chemsMapping = {'CH4':'CH<sub>4</sub>',
@@ -35,8 +37,9 @@ function viewReady(){
 
 jQuery(document).ready(function($) {
     $('.facet-view-simple').facetview({
-        search_url: 'http://' + es_host + es_path,
+        search_url: './api',
         search_index: 'elasticsearch',
+        datatype: 'json',
         initial_search: false,
         enable_rangeselect: true,
         post_search_callback: viewReady,
@@ -72,7 +75,7 @@ jQuery(document).ready(function($) {
                     'post': '</td>'
                 },
                 {
-                    'pre': '<td><a href="' + base_path + 'details?pamid=',
+                    'pre': '<td><a href="./details?pamid=',
                     'field':field_base + 'PAMID',
                     'post': '">'
                 },
