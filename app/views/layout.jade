@@ -2,6 +2,7 @@ doctype html
 html
     head
         title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
+        <base href="#{base_path}" /><!--[if lt IE 7]></base><![endif]-->
 
         != templateRender(headFile)
         script(type='text/javascript').
@@ -21,8 +22,6 @@ html
         script(type='text/javascript', src='javascripts/jquery.facetview.js')
         script(type='text/javascript', src='javascripts/jquery.linkify-1.0-min.js')
         script(type='text/javascript', src='javascripts/jquery-ui-1.8.18.custom.min.js')
-        script(type='text/javascript').
-            var base_path = "#{base_path}";
         script(type='text/javascript', src='javascripts/pam.facetview.js')
     body
         != templateRender(headerFile)

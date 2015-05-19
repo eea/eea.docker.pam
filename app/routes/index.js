@@ -2,10 +2,11 @@
  * GET home page.
  */
 
-var field_base='http://semantic.eea.europa.eu/project/pam/pam2014.csv#'
 
 var nconf = require('nconf');
-nconf.file({file:'config.json'});
+
+nconf.file({file:'/code/settings.json'});
+var field_base = nconf.get("elastic:field_base");
 var path = require('path');
 
 var fs = require('fs');
@@ -64,23 +65,31 @@ var fieldsMapping = [
     {'name' : 'Years_for_which_the_reduction_applies', 'field' : field_base + 'Years_for_which_the_reduction_applies', 'title' : 'Year(s) for which the reduction applies'}
 ];
 
+function get_base_path(req){
+    protocol = req.get('protocol') ? req.get('protocol') : 'http'
+    host = req.get('host');
+    pam_path = req.get('pam_path') ? req.get('pam_path') : ''
+    var base_path = req.protocol + "://" + host + pam_path + "/";
+    return base_path;
+}
+
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
   res.render('index', {title: 'PAM',
-//                       base_path: base_path,
-//                       es_host: es_host,
-//                       es_path: es_path,
-                       field_base: field_base,
-                       'headFile': path.join(templatePath, 'head.html'),
-                       'headerFile': path.join(templatePath, 'header.html'),
-                       'footerFile': path.join(templatePath, 'footer.html'),
-                       'templateRender': fs.readFileSync});
+                        field_base: field_base,
+                        base_path: get_base_path(req),
+                        'headFile': path.join(templatePath, 'head.html'),
+                        'headerFile': path.join(templatePath, 'header.html'),
+                        'footerFile': path.join(templatePath, 'footer.html'),
+                        'templateRender': fs.readFileSync});
 };
 
 exports.details = function(req, res){
+  var base_path = get_base_path(req);
+
+  var elastic = nconf.get()['elastic'];
   var templatePath = nconf.get('external_templates:local_path');
-  var full_url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  var base_url = full_url.split("/details?pamid")[0];
+
   if (req.query.pamid === undefined){
       res.send('pamid is missing');
       return;
@@ -90,8 +99,10 @@ exports.details = function(req, res){
 
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
+
+  elastic_port = elastic.port ? elastic.port : 80
   var options = {
-    host: base_url+"/api",
+    host: "http://" + elastic.host + elastic.path  + elastic.index + "/" + elastic.type + "/_search",
     path: "?source="+ query
   };
 
@@ -112,26 +123,21 @@ exports.details = function(req, res){
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
             res.render('details', {data: resultobj,
-//                                   base_path: base_path,
-//                                   es_host: es_host,
-//                                   es_path: es_path,
-//                                   field_base: field_base,
-        'headFile': path.join(templatePath, 'head.html'),
-        'headerFile': path.join(templatePath, 'header.html'),
-        'footerFile': path.join(templatePath, 'footer.html'),
-        'templateRender': fs.readFileSync});
+                                    field_base: field_base,
+                                    base_path: base_path,
+                                    'headFile': path.join(templatePath, 'head.html'),
+                                    'headerFile': path.join(templatePath, 'header.html'),
+                                    'footerFile': path.join(templatePath, 'footer.html'),
+                                    'templateRender': fs.readFileSync});
         }
         catch(err){
-            res.render('details', {data: "",
-//                                   base_path: base_path,
-//                                   es_host: es_host,
-//                                   es_path: es_path,
-//                                   field_base: field_base,
-        'headFile': path.join(templatePath, 'head.html'),
-        'headerFile': path.join(templatePath, 'header.html'),
-        'footerFile': path.join(templatePath, 'footer.html'),
-        'templateRender': fs.readFileSync
-});
+            res.render('details', {field_base: field_base,
+                                    base_path: base_path,
+                                    pamid: req.query.pamid,
+                                    'headFile': path.join(templatePath, 'head.html'),
+                                    'headerFile': path.join(templatePath, 'header.html'),
+                                    'footerFile': path.join(templatePath, 'footer.html'),
+                                    'templateRender': fs.readFileSync});
         }
 
     }

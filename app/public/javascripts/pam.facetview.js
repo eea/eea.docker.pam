@@ -1,5 +1,3 @@
-var field_base='http://semantic.eea.europa.eu/project/pam/pam2014.csv#'
-
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
     var chemsMapping = {'CH4':'CH<sub>4</sub>',
