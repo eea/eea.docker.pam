@@ -69,7 +69,7 @@ function get_base_path(req){
     protocol = req.get('protocol') ? req.get('protocol') : 'http'
     host = req.get('host');
     pam_path = req.get('pam_path') ? req.get('pam_path') : ''
-    var base_path = req.protocol + "://" + host + pam_path + "/";
+    var base_path = req.protocol + "://" + host + pam_path;
     return base_path;
 }
 
@@ -87,7 +87,6 @@ exports.index = function(req, res){
 exports.details = function(req, res){
   var base_path = get_base_path(req);
 
-  var elastic = nconf.get()['elastic'];
   var templatePath = nconf.get('external_templates:local_path');
 
   if (req.query.pamid === undefined){
@@ -100,12 +99,10 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
 
-  elastic_port = elastic.port ? elastic.port : 80
   var options = {
-    host: "http://" + elastic.host + elastic.path  + elastic.index + "/" + elastic.type + "/_search",
+    host:base_path + "/api",
     path: "?source="+ query
   };
-
   request(options.host + options.path, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         try{
