@@ -1,17 +1,25 @@
 var esAPI = require('eea-searchserver').esAPI;
 
-//var config = require('./river_config/config.js');
-//var analyzers = require('./river_config/analyzers.js');
+var analyzers = require('./river_config/analyzers.js');
+var config = require('./river_config/config.js');
 
-function getOptions() {
-    var nconf = require('nconf')
-    var elastic = nconf.get()['elastic'];
-    return {
-        'es_host': elastic.host + ':' + elastic.port + elastic.path
-    };
-}
+var syncReq = {
+    "type": "eeaRDF",
+    "eeaRDF" : {
+        "endpoint" : config.endpoint,
+        "queryType" : config.queryType,
+        "query" : config.query,
+        "addLanguage" : false,
+        "includeResourceURI" : false
+    },
+    "index" : {
+        "index" : "pamdata",
+        "type" : "resources"
+    }
+};
 
-/*var syncReq = {
+/*
+var syncReq = {
     'type': 'eeaRDF',
     'eeaRDF': {
         'endpoint': config.endpoint,
@@ -30,10 +38,18 @@ function getOptions() {
         'normObj': config.normObj,
         'syncOldData': true
     }
-};
+};*/
+
+function getOptions() {
+    var nconf = require('nconf')
+    var elastic = nconf.get()['elastic'];
+    return {
+        'es_host': elastic.host + ':' + elastic.port + elastic.path
+    };
+}
 
 var analyzers = analyzers.mappings;
-*/
+
 var callback = function(text) {
     return function(err, statusCode, header, body) {
         console.log(text);
@@ -47,54 +63,47 @@ var callback = function(text) {
     };
 }
 
-function syncIndex() {
-/*    new esAPI(getOptions())
-        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river!'))
-        .execute();*/
-}
-
 function removeRiver() {
-/*    new esAPI(getOptions())
-        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .execute();*/
+    new esAPI(getOptions())
+        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
+        .execute();
 }
 
 function removeData() {
-/*    var elastic = require('nconf').get('elastic');
+    var elastic = require('nconf').get('elastic');
     new esAPI(getOptions())
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
-        .execute();*/
+        .execute();
 }
 
 function reindex() {
-/*    var elastic = require('nconf').get('elastic');
+    var elastic = require('nconf').get('elastic');
 
     new esAPI(getOptions())
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
         .PUT(elastic.index, analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river back'))
-        .execute();*/
+        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
+        .PUT('_river/new_pam/_meta', syncReq, callback('Adding river back'))
+        .execute();
 }
 
 function createIndex() {
-/*    var elastic = require('nconf').get('elastic');
+console.log(syncReq);
+    var elastic = require('nconf').get('elastic');
 
     new esAPI(getOptions())
         .PUT(elastic.index, analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river back'))
-        .execute();*/
+        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
+        .PUT('_river/new_pam/_meta', syncReq, callback('Adding river back'))
+        .execute();
 }
 
 function showHelp() {
     console.log('List of available commands:');
     console.log(' runserver: Run the app web server');
     console.log('');
-    console.log(' sync: Get changes from the semantic DB into the ES index');
     console.log(' create_index: Setup Elastic index and trigger indexing');
     console.log(' reindex: Remove data and recreate index');
     console.log('');
@@ -106,7 +115,6 @@ function showHelp() {
 }
 
 module.exports = { 
-    'sync': syncIndex,
     'remove_river': removeRiver,
     'remove_data': removeData,
     'reindex': reindex,
