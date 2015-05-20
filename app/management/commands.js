@@ -18,28 +18,6 @@ var syncReq = {
     }
 };
 
-/*
-var syncReq = {
-    'type': 'eeaRDF',
-    'eeaRDF': {
-        'endpoint': config.endpoint,
-        'indexType': 'sync',
-        'syncConditions': config.syncConditions,
-        'graphSyncConditions': 'FILTER (str(?graph) = concat(str(?resource), \'/@@rdf\'))',
-        'syncTimeProp': config.syncTimeProp,
-        'startTime': '',
-        'queryType': config.queryType,
-        'proplist': config.proplist,
-        'listtype': config.listtype,
-        'normProp': config.normProp,
-        'normMissing': config.normMissing,
-        'blackMap': config.blackMap,
-        'whiteMap': config.whiteMap,
-        'normObj': config.normObj,
-        'syncOldData': true
-    }
-};*/
-
 function getOptions() {
     var nconf = require('nconf')
     var elastic = nconf.get()['elastic'];
@@ -89,7 +67,6 @@ function reindex() {
 }
 
 function createIndex() {
-console.log(syncReq);
     var elastic = require('nconf').get('elastic');
 
     new esAPI(getOptions())
