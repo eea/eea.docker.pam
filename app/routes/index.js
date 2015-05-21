@@ -66,9 +66,9 @@ var fieldsMapping = [
 ];
 
 function get_base_path(req){
-    protocol = req.get('protocol') ? req.get('protocol') : 'http'
-    host = req.get('host');
-    pam_path = req.get('pam_path') ? req.get('pam_path') : ''
+    var protocol = req.get('protocol') ? req.get('protocol') : 'http'
+    var host = req.get('host');
+    var pam_path = req.get('pam_path') ? req.get('pam_path') : ''
     var base_path = req.protocol + "://" + host + pam_path;
     return base_path;
 }
@@ -99,8 +99,18 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
 
+  // workaround for docker:
+  // if the hostname contains a port, there is a possibility that the port from the request is different than the port of the webapp inside the container, so we replace it with the application's port number
+  var host = base_path;
+  var host_parts = host.split(':');
+  if (!isNaN(host_parts[host_parts.length - 1])){
+    host_parts[2] = nconf.get('http:port');
+    host = host_parts.join(':');
+  }
+  // end of workaround
+
   var options = {
-    host:base_path + "/api",
+    host: host + "/api",
     path: "?source="+ query
   };
   request(options.host + options.path, function (error, response, body) {
