@@ -30,7 +30,7 @@ the ```volumes``` entry in ```docker-compose.yml```
 2. Use any orchestration solution and make sure that the container
    can ping the Elastic backend
 3. Pass commands and env variables to the image as explained in the Docker Usage section
-4. Configure Apache/Nginx
+4. ##### Configure Apache/Nginx
  If the application is mapped under a path like: /data-and-maps/pam it needs to have configured a header called **pam_path**
 
  * Apache:
