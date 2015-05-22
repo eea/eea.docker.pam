@@ -1,3 +1,5 @@
+var elastic_settings = require('nconf').get('elastic');
+
 var esAPI = require('eea-searchserver').esAPI;
 
 var analyzers = require('./river_config/analyzers.js');
@@ -13,8 +15,8 @@ var syncReq = {
         "includeResourceURI" : false
     },
     "index" : {
-        "index" : "pamdata",
-        "type" : "resources"
+        "index" : elastic_settings.index,
+        "type" : elastic_settings.type
     }
 };
 
