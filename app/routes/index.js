@@ -99,15 +99,7 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
 
-  // workaround for docker:
-  // if the hostname contains a port, there is a possibility that the port from the request is different than the port of the webapp inside the container, so we replace it with the application's port number
-  var host = base_path;
-  var host_parts = host.split(':');
-  if (!isNaN(host_parts[host_parts.length - 1])){
-    host_parts[2] = nconf.get('http:port');
-    host = host_parts.join(':');
-  }
-  // end of workaround
+  var host = "http://localhost:" + nconf.get('http:port');
 
   var options = {
     host: host + "/api",
