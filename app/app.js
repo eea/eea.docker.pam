@@ -45,14 +45,6 @@ function checkError(err) {
     }
 }
 
-// Schedule sync as expressed in env variables
-// only if running the server
-var syncCrontab = process.env.SYNC_CRONTAB
-if (syncCrontab && process.argv[2] == 'runserver') {
-    crontab.scheduleJob(syncCrontab, managementCommands.sync);
-    console.log("Enabled sync crontab job: " + syncCrontab);
-}
-
 searchServer.Server(app, __dirname + '/settings.json', function(err, srv) {
     checkError(err);
     var elastic = srv.nconf.get()['elastic'];
