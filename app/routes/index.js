@@ -65,19 +65,10 @@ var fieldsMapping = [
     {'name' : 'Years_for_which_the_reduction_applies', 'field' : field_base + 'Years_for_which_the_reduction_applies', 'title' : 'Year(s) for which the reduction applies'}
 ];
 
-function get_base_path(req){
-    var protocol = req.get('protocol') ? req.get('protocol') : 'http'
-    var host = req.get('host');
-    var pam_path = req.get('pam_path') ? req.get('pam_path') : ''
-    var base_path = req.protocol + "://" + host + pam_path;
-    return base_path;
-}
-
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
   res.render('index', {title: 'PAM',
                         field_base: field_base,
-                        base_path: get_base_path(req),
                         'headFile': path.join(templatePath, 'head.html'),
                         'headerFile': path.join(templatePath, 'header.html'),
                         'footerFile': path.join(templatePath, 'footer.html'),
@@ -85,7 +76,6 @@ exports.index = function(req, res){
 };
 
 exports.details = function(req, res){
-  var base_path = get_base_path(req);
 
   var templatePath = nconf.get('external_templates:local_path');
 
@@ -123,7 +113,6 @@ exports.details = function(req, res){
             }
             res.render('details', {data: resultobj,
                                     field_base: field_base,
-                                    base_path: base_path,
                                     'headFile': path.join(templatePath, 'head.html'),
                                     'headerFile': path.join(templatePath, 'header.html'),
                                     'footerFile': path.join(templatePath, 'footer.html'),
@@ -131,7 +120,6 @@ exports.details = function(req, res){
         }
         catch(err){
             res.render('details', {field_base: field_base,
-                                    base_path: base_path,
                                     pamid: req.query.pamid,
                                     'headFile': path.join(templatePath, 'head.html'),
                                     'headerFile': path.join(templatePath, 'header.html'),
