@@ -31,12 +31,13 @@ the ```volumes``` entry in ```docker-compose.yml```
    can ping the Elastic backend
 3. Pass commands and env variables to the image as explained in the Docker Usage section
 4. ##### Configure Apache/Nginx
- If the application is mapped under a path like: /data-and-maps/pam it needs to have configured a header called **pam_path**
+ If the application is mapped under a path like: /data-and-maps/pam it needs to be redeirected to /data-and-maps/pam/
 
  * Apache:
-       RequestHeader set pam_path '/data-and-maps/pam' nginx:
+        RewriteCond %{REQUEST_URI} data-and-maps/pam$
+        RewriteRule ^(.*[^/])$ $1/ [L,R=301]
  * nginx:
-        proxy_set_header pam_path '/data-and-maps/pam'
+        on the location is important to have /data-and-maps/pam/
 
 ## Docker Usage
 
