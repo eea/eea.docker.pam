@@ -34,11 +34,17 @@ the ```volumes``` entry in ```docker-compose.yml```
  If the application is mapped under a path like: /data-and-maps/pam it needs to be redeirected to /data-and-maps/pam/
 
  * Apache:
-        RewriteCond %{REQUEST_URI} data-and-maps/pam$
-        RewriteRule ^(.*[^/])$ $1/ [L,R=301]
- * nginx:
-        on the location is important to have /data-and-maps/pam/
+	```
+	RewriteCond %{REQUEST_URI} data-and-maps/pam$
+	RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+	```
 
+ * nginx:
+	```
+	location /data-and-maps/pam/ {
+		proxy_pass http://hostRunningPamContainer:3000/
+	}
+	```
 ## Docker Usage
 
 Basic usage of the image is given by the following pattern:
