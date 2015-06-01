@@ -1,4 +1,5 @@
 # PAM Node.js application + Docker env
+Slice and dice facetted search for policies and measures (PAM) implemented or planned by European countries to reduce greenhouse gas emissions reported to the European Environment Agency
 
 ## Development
 1. Change code
