@@ -404,6 +404,7 @@ function sortNumber(a,b){
             "facets":[],
             "extra_facets": {},
             "enable_rangeselect": false,
+            "enable_geoselect": false,
             "include_facets_in_querystring": false,
             "result_display": resdisplay,
             "display_images": true,
@@ -436,7 +437,8 @@ function sortNumber(a,b){
             "default_operator": "OR",
             "default_freetext_fuzzify": false,
             "include_id":false,
-            "id_label":""
+            "id_label":"",
+            "default_sort":{}
         };
 
 
@@ -540,6 +542,118 @@ function sortNumber(a,b){
 
         // insert a facet range once selected
         // TODO: UPDATE
+        // build a facet geo selector
+        var dofacetgeo = function(rel) {
+            $('#facetview_georesults_' + rel, obj).remove();
+            if ($('#facetview_geochoices_' + rel, obj).find("#geo-distance-tab").is(":visible")){
+                $('#facetview_geochoices_' + rel, obj).find(".facetview_geo_type_"+rel).attr("value", "distance");
+            }
+            else {
+                $('#facetview_geochoices_' + rel, obj).find(".facetview_geo_type_"+rel).attr("value", "bounding-box");
+            }
+
+            var geo = $('#facetview_geochoices_' + rel, obj).html();
+            var newobj = $("<div>")
+                                .css("display","none")
+                                .addClass("btn-group")
+                                .attr("id", "facetview_georesults_" + rel);
+            var newobja = $("<a>")
+                                .addClass("facetview_filterselected facetview_facetgeo facetview_clear btn btn-info")
+                                .attr("rel", rel);
+
+            var newobji = $("<i>")
+                                .addClass("icon-white icon-remove");
+            $(geo).appendTo(newobja);
+            newobji.appendTo(newobja);
+            newobja.appendTo(newobj);
+            $('#facetview_selectedfilters', obj).append(newobj);
+            $('.facetview_filterselected', obj).unbind('click',clearfilter);
+            $('.facetview_filterselected', obj).bind('click',clearfilter);
+
+            options.paging.from = 0;
+            dosearch();
+        };
+
+        var clearfacetgeo = function(event) {
+            event.preventDefault();
+            $('#facetview_georesults_' + $(this).attr('rel'), obj).remove();
+            $('#facetview_geoplaceholder_' + $(this).attr('rel'), obj).remove();
+            dosearch();
+        };
+
+        var facetgeo = function(event) {
+            event.preventDefault();
+            var rel = $(this).attr('rel');
+            if ($("#facetview_geoplaceholder_" + rel).length !== 0){
+                $('#facetview_georesults_' + rel, obj).remove();
+                $('#facetview_geoplaceholder_' + rel, obj).remove();
+                dosearch();
+                return;
+            }
+            var eea_rel = $($(this).parent().parent().find("a")[0]).attr("rel");
+            var eea_title = $($(this).parent().parent().find("a")[0]).text();
+            var geoselect = '<div id="facetview_geoplaceholder_' + rel + '" class="facetview_geocontainer clearfix"> \
+                <h3>' + eea_title + '</h3>\
+                <div class="clearfix"> \
+                <h3 id="facetview_geochoices_' + rel + '" style="margin-left:10px; margin-right:10px; float:left; clear:none;" class="clearfix"> \
+                <div style="float:left">\
+                    <div id="geo-facet-tabs">\
+                        <input class="facetview_geo_type_'+rel+'" type="text" style="display:none">\
+                        <ul>\
+                            <li><a href="#geo-distance-tab" class="geo-facet-type">Distance</a></li>\
+                            <li><a href="#geo-bounding-box-tab" class="geo-facet-type">Bounding Box</a></li>\
+                        </ul>\
+                        <div id="geo-distance-tab">\
+                            <span>latitude</span><input class="facetview_latval_'+rel+'" type="text"><br/>\
+                            <span>longitude</span><input class="facetview_lonval_'+rel+'" type="text"><br/>\
+                            <span>distance(km)</span><input class="facetview_distval_'+rel+'" type="text"><br/>\
+                        </div>\
+                        <div id="geo-bounding-box-tab">\
+                            <span>Top Left</span><br/>\
+                            <span style="padding-left:10px; width:190px">latitude</span><input class="facetview_latval1_'+rel+'" type="text"><br/>\
+                            <span style="padding-left:10px; width:190px">longitude</span><input class="facetview_lonval1_'+rel+'" type="text"><br/>\
+                            <span>Bottom Right</span><br/>\
+                            <span style="padding-left:10px; width:190px">latitude</span><input class="facetview_latval2_'+rel+'" type="text"><br/>\
+                            <span style="padding-left:10px; width:190px">longitude</span><input class="facetview_lonval2_'+rel+'" type="text"><br/>\
+                        </div>\
+                    </div>\
+                </div></h3>\
+                <div style="float:right;" class="btn-group">';
+            geoselect += '<a class="facetview_facetgeo_remove btn" rel="' + rel + '" alt="remove" title="remove" \
+                 href="#"><i class="icon-remove"></i></a> \
+                </div></div> \
+                </div>';
+            $('#facetview_selectedfilters', obj).after(geoselect);
+            $('.facetview_facetgeo_remove', obj).unbind('click',clearfacetgeo);
+            $('.facetview_facetgeo_remove', obj).bind('click',clearfacetgeo);
+
+            $( "#geo-facet-tabs" ).tabs();
+
+            $("#facetview_geochoices_" + rel + " input", obj).change(function(){
+
+                var lat = $('#facetview_geoplaceholder_' + rel + ' .facetview_latval_' + rel, obj).attr("value");
+                var lon = $('#facetview_geoplaceholder_' + rel + ' .facetview_lonval_' + rel, obj).attr("value");
+                var dist = $('#facetview_geoplaceholder_' + rel + ' .facetview_distval_' + rel, obj).attr("value");
+
+                $('#facetview_geochoices_' + rel + ' .facetview_latval_' + rel, obj).attr("value", lat);
+                $('#facetview_geochoices_' + rel + ' .facetview_lonval_' + rel, obj).attr("value", lon);
+                $('#facetview_geochoices_' + rel + ' .facetview_distval_' + rel, obj).attr("value", dist);
+
+                var lat1 = $('#facetview_geoplaceholder_' + rel + ' .facetview_latval1_' + rel, obj).attr("value");
+                var lon1 = $('#facetview_geoplaceholder_' + rel + ' .facetview_lonval1_' + rel, obj).attr("value");
+                var lat2 = $('#facetview_geoplaceholder_' + rel + ' .facetview_latval2_' + rel, obj).attr("value");
+                var lon2 = $('#facetview_geoplaceholder_' + rel + ' .facetview_lonval2_' + rel, obj).attr("value");
+
+                $('#facetview_geochoices_' + rel + ' .facetview_latval1_' + rel, obj).attr("value", lat1);
+                $('#facetview_geochoices_' + rel + ' .facetview_lonval1_' + rel, obj).attr("value", lon1);
+                $('#facetview_geochoices_' + rel + ' .facetview_latval2_' + rel, obj).attr("value", lat2);
+                $('#facetview_geochoices_' + rel + ' .facetview_lonval2_' + rel, obj).attr("value", lon2);
+
+                dofacetgeo(rel);
+            });
+        };
+
+
         var dofacetrange = function(rel) {
             $('#facetview_rangeresults_' + rel, obj).remove();
             var range = $('#facetview_rangechoices_' + rel, obj).html();
@@ -594,13 +708,18 @@ function sortNumber(a,b){
             $('.facetview_facetrange_remove', obj).bind('click',clearfacetrange);
             var values = [];
             var valsobj = $( '[id="facetview_' + eea_rel +'"]', obj );
-            valsobj.find('.facetview_filterchoice', obj).each(function() {
-                var eea_val = parseFloat($(this).attr('href'));
-                if (!isNaN(eea_val)){
-                    values.push(eea_val);
-                }
-            });
-            values = values.sort(sortNumber);
+            if (valsobj.hasClass("hasData")) {
+                values = valsobj.data('values');
+            }
+            else{
+                valsobj.find('.facetview_filterchoice', obj).each(function() {
+                    var eea_val = parseFloat($(this).attr('href'));
+                    if (!isNaN(eea_val)){
+                        values.push(eea_val);
+                    }
+                });
+                values = values.sort(sortNumber);
+            }
             $( "#facetview_slider_" + rel, obj ).slider({
                 range: true,
                 min: 0,
@@ -609,6 +728,8 @@ function sortNumber(a,b){
                 slide: function( event, ui ) {
                     $('#facetview_rangechoices_' + rel + ' .facetview_lowrangeval_' + rel, obj).html( values[ ui.values[0] ] );
                     $('#facetview_rangechoices_' + rel + ' .facetview_highrangeval_' + rel, obj).html( values[ ui.values[1] ] );
+                },
+                stop: function( event, ui ){
                     dofacetrange( rel );
                 }
             });
@@ -634,6 +755,9 @@ function sortNumber(a,b){
                             ';
                     if ( options.enable_rangeselect ) {
                         _filterTmpl += '<a class="btn btn-small facetview_facetrange" title="make a range selection on this filter" rel="{{FACET_IDX}}" href="{{FILTER_EXACT}}" style="color:#aaa;">range</a>';
+                    }
+                    if ( options.enable_geoselect ) {
+                        _filterTmpl += '<a class="btn btn-small facetview_facetgeo" title="make a geo selection on this filter" rel="{{FACET_IDX}}" href="{{FILTER_EXACT}}" style="color:#aaa;">range</a>';
                     }
                     _filterTmpl +='</div> \
                         </td></tr> \
@@ -673,6 +797,7 @@ function sortNumber(a,b){
                 $('#facetview_filters', obj).html("").append(thefilters);
                 $('.facetview_morefacetvals', obj).bind('click',morefacetvals);
                 $('.facetview_facetrange', obj).bind('click',facetrange);
+                $('.facetview_facetgeo', obj).bind('click',facetgeo);
                 $('.facetview_sort', obj).bind('click',sortfilters);
                 $('.facetview_or', obj).bind('click',orfilters);
                 $('.facetview_filtershow', obj).bind('click',showfiltervals);
@@ -879,7 +1004,7 @@ function sortNumber(a,b){
             // get the data and parse from the es layout
             var data = parseresults(sdata);
             options.data = data;
-            
+
             // for each filter setup, find the results for it and append them to the relevant filter
             for ( var each = 0; each < options.facets.length; each++ ) {
                 var facet = options.facets[each]['field'];
@@ -899,11 +1024,32 @@ function sortNumber(a,b){
                     }
                 }
                 records = tmp_records;
-                for ( var item in records ) {
+                if (jQuery.inArray(facet, options.rangefacets) == -1){
+                    for ( var item in records ) {
+                        var append = '<tr class="facetview_filtervalue" style="display:none;"><td><a class="facetview_filterchoice' +
+                            '" rel="' + facet + '" href="' + item + '">' + item +
+                            ' (' + records[item] + ')</a></td></tr>';
+                        facet_filter.append(append);
+                    }
+                }
+                else{
+                    var rangevalues = []
+                    for ( var item in records ) {
+                        rangevalues.push(parseFloat(item));
+                    }
+                    rangevalues = rangevalues.sort(sortNumber);
+
                     var append = '<tr class="facetview_filtervalue" style="display:none;"><td><a class="facetview_filterchoice' +
-                        '" rel="' + facet + '" href="' + item + '">' + item +
-                        ' (' + records[item] + ')</a></td></tr>';
+                        '" rel="' + facet + '" href="' + rangevalues[0].toString() + '">' + rangevalues[0].toString() +
+                        ' (' + records[rangevalues[0].toString()] + ')</a></td></tr>';
                     facet_filter.append(append);
+
+                    append = '<tr class="facetview_filtervalue" style="display:none;"><td><a class="facetview_filterchoice' +
+                        '" rel="' + facet + '" href="' + rangevalues[rangevalues.length-1].toString() + '">' + rangevalues[rangevalues.length-1].toString() +
+                        ' (' + records[rangevalues[rangevalues.length-1].toString()] + ')</a></td></tr>';
+                    facet_filter.append(append);
+                    facet_filter.data("values", rangevalues)
+                    facet_filter.addClass("hasData");
                 }
                 if ( $('.facetview_filtershow[rel="' + facetclean + '"]', obj).hasClass('facetview_open') ) {
                     facet_filter.children().find('.facetview_filtervalue').show();
@@ -1015,6 +1161,7 @@ function sortNumber(a,b){
             var qs = {};
             var bool = false;
             var nested = false;
+            var filter = {};
             var seenor = []; // track when an or group are found and processed
             $('.facetview_filterselected',obj).each(function() {
                 !bool ? bool = {'must': [] } : "";
@@ -1034,35 +1181,76 @@ function sortNumber(a,b){
                         bool['must'].push(robj);
                     }
                 } else {
-                    // TODO: check if this has class facetview_logic_or
-                    // if so, need to build a should around it and its siblings
-                    if ( $(this).hasClass('facetview_logic_or') ) {
-                        if ( !($(this).attr('rel') in seenor) ) {
-                            seenor.push($(this).attr('rel'));
-                            var bobj = {'bool':{'should':[]}};
-                            $('.facetview_filterselected[rel="' + $(this).attr('rel') + '"]').each(function() {
-                                if ( $(this).hasClass('facetview_logic_or') ) {
-                                    var ob = {'term':{}};
-                                    ob['term'][ $(this).attr('rel') ] = $(this).attr('href');
-                                    bobj.bool.should.push(ob);
+                    if ( $(this).hasClass('facetview_facetgeo') ) {
+                        var geo_type = $('.facetview_geo_type_' + $(this).attr('rel'), this).attr("value");
+                        if (geo_type === "distance"){
+                            var lat = $('.facetview_latval_' + $(this).attr('rel'), this).attr("value");
+                            var lon =  $('.facetview_lonval_' + $(this).attr('rel'), this).attr("value");
+                            var dist = $('.facetview_distval_' + $(this).attr('rel'), this).attr("value");
+                            if ((!isNaN(parseFloat(lat))) && (!isNaN(parseFloat(lon))) && (!isNaN(parseFloat(dist)))){
+                                var geo_pos = {
+                                    'lat': lat,
+                                    'lon': lon
                                 };
-                            });
-                            if ( bobj.bool.should.length == 1 ) {
-                                var spacer = {'match_all':{}};
-                                bobj.bool.should.push(spacer);
+                                var rel = options.facets[ $(this).attr('rel') ]['field'];
+                                filter['geo_distance'] = {};
+                                filter['geo_distance']['distance'] = dist+"km";
+                                filter['geo_distance'][ rel ] = geo_pos;
+                            }
+                        }
+                        else {
+                            var lat1 = $('.facetview_latval1_' + $(this).attr('rel'), this).attr("value");
+                            var lon1 =  $('.facetview_lonval1_' + $(this).attr('rel'), this).attr("value");
+                            var lat2 = $('.facetview_latval2_' + $(this).attr('rel'), this).attr("value");
+                            var lon2 =  $('.facetview_lonval2_' + $(this).attr('rel'), this).attr("value");
+
+                            if ((!isNaN(parseFloat(lat1))) && (!isNaN(parseFloat(lon1))) && (!isNaN(parseFloat(lat2))) && (!isNaN(parseFloat(lon2)))){
+                                var top_left = {
+                                    'lat': lat1,
+                                    'lon': lon1,
+                                };
+                                var bottom_right = {
+                                    'lat': lat2,
+                                    'lon': lon2
+                                };
+                                var rel = options.facets[ $(this).attr('rel') ]['field'];
+                                filter['geo_bounding_box'] = {};
+                                filter['geo_bounding_box'][ rel ] = {};
+                                filter['geo_bounding_box'][ rel ].top_left = top_left;
+                                filter['geo_bounding_box'][ rel ].bottom_right = bottom_right;
                             }
                         }
                     } else {
-                        var bobj = {'term':{}};
-                        bobj['term'][ $(this).attr('rel') ] = $(this).attr('href');
-                    }
+                        // TODO: check if this has class facetview_logic_or
+                        // if so, need to build a should around it and its siblings
+                        if ( $(this).hasClass('facetview_logic_or') ) {
+                            if ( !($(this).attr('rel') in seenor) ) {
+                                seenor.push($(this).attr('rel'));
+                                var bobj = {'bool':{'should':[]}};
+                                $('.facetview_filterselected[rel="' + $(this).attr('rel') + '"]').each(function() {
+                                    if ( $(this).hasClass('facetview_logic_or') ) {
+                                        var ob = {'term':{}};
+                                        ob['term'][ $(this).attr('rel') ] = $(this).attr('href');
+                                        bobj.bool.should.push(ob);
+                                    };
+                                });
+                                if ( bobj.bool.should.length == 1 ) {
+                                    var spacer = {'match_all':{}};
+                                    bobj.bool.should.push(spacer);
+                                }
+                            }
+                        } else {
+                            var bobj = {'term':{}};
+                            bobj['term'][ $(this).attr('rel') ] = $(this).attr('href');
+                        }
                     
-                    // check if this should be a nested query
-                    var parts = $(this).attr('rel').split('.');
-                    if ( options.nested.indexOf(parts[0]) != -1 ) {
-                        !nested ? nested = {"nested":{"_scope":parts[0],"path":parts[0],"query":{"bool":{"must":[bobj]}}}} : nested.nested.query.bool.must.push(bobj);
-                    } else {
-                        bool['must'].push(bobj);
+                        // check if this should be a nested query
+                        var parts = $(this).attr('rel').split('.');
+                        if ( options.nested.indexOf(parts[0]) != -1 ) {
+                            !nested ? nested = {"nested":{"_scope":parts[0],"path":parts[0],"query":{"bool":{"must":[bobj]}}}} : nested.nested.query.bool.must.push(bobj);
+                        } else {
+                            bool['must'].push(bobj);
+                        }
                     }
                 }
             });
@@ -1084,7 +1272,12 @@ function sortNumber(a,b){
                     bool['must'].push( {'query_string': qryval } );
                 };
                 nested ? bool['must'].push(nested) : "";
-                qs['query'] = {'bool': bool};
+                qs['query'] = {};
+                qs['query']['filtered'] = {};
+                qs['query']['filtered']['query'] = {'bool': bool};
+                if (!$.isEmptyObject(filter)){
+                    qs['query']['filtered']['filter'] = filter;
+                }
             } else {
                 if ( options.q != "" ) {
                     var qryval = { 'query': fuzzify(options.q) };
@@ -1139,9 +1332,18 @@ function sortNumber(a,b){
             } else {
                 options.q = $(options.searchbox_class).last().val();
             };
+
+            //set the default sort
+            if ((options.sort.length === 0) && (!jQuery.isEmptyObject(options.default_sort))){
+                options.sort = options.default_sort;
+            }
             // make the search query
             var qrystr = elasticsearchquery();
             // augment the URL bar if possible
+            if (options.previousQuerystr === qrystr){
+                return;
+            }
+            options.previousQuerystr = qrystr;
             if ( options.pushstate ) {
                 var currurl = '?source=' + options.querystring;
                 window.history.pushState("","search",currurl);
@@ -1174,7 +1376,7 @@ function sortNumber(a,b){
                 dosearch();
             }
         };
-        
+
         // change the search result order
         var order = function(event) {
             event.preventDefault();
@@ -1207,7 +1409,8 @@ function sortNumber(a,b){
         // parse any source params out for an initial search
         var parsesource = function() {
             var qrystr = options.source.query;
-            if ( 'bool' in qrystr ) {
+            if  (( 'filtered' in qrystr ) && ( 'query' in qrystr.filtered ) && ( 'bool' in qrystr.filtered.query )) {
+                qrystr = qrystr.filtered.query;
                 var qrys = [];
                 // TODO: check for nested
                 if ( 'must' in qrystr.bool ) {
@@ -1283,6 +1486,9 @@ function sortNumber(a,b){
                     <p>Filter ranges are only available across filter values already in the filter list; \
                     so if a wider filter range is required, first increase the filter size then select the filter range.</p>';
             }
+            if ( options.enable_geoselect ) {
+                thehelp += '<p><b>Apply a gep position filter</b>';
+            }
         };
         thehelp += '<p><a class="facetview_learnmore label" href="#">close the help</a></p></div>';
         
@@ -1340,6 +1546,7 @@ function sortNumber(a,b){
         thefacetview += '<div style="clear:both;" class="btn-toolbar" id="facetview_selectedfilters"></div>';
         options.pager_on_top ? thefacetview += '<div class="facetview_metadata" style="margin-top:20px;"></div>' : "";
         thefacetview += options.searchwrap_start + options.searchwrap_end;
+        thefacetview += '<div class="notify_loading"></div>';
         thefacetview += '<div class="facetview_metadata"></div></div></div></div>';
 
         var obj = undefined;

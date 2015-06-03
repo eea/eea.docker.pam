@@ -28,9 +28,23 @@ function addHeaders(){
     $("#facetview_results").append("<thead><tr><th>Country</th><th>Link to EU Emissions Trading Scheme (ETS)</th><th>Targeted sectors</th><th>Name</th><th>Status</th><th>Projection scenario in which the PAM is included</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
 }
 
+function fixDataTitles(){
+    var th_list = [];
+    $("#facetview_results thead th").each(function(idx, th){
+        th_list.push($(th).text());
+
+    })
+    $("#facetview_results tr").each(function(tr_idx, tr){
+        $(tr).find("td").each(function(td_idx, td){
+            $(td).attr("data-title", th_list[td_idx]);
+        });
+    });
+}
+
 function viewReady(){
     replaceNumbers();
     addHeaders();
+    fixDataTitles();
 }
 
 jQuery(document).ready(function($) {
