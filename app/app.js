@@ -14,7 +14,7 @@ var nconf = require('nconf');
 var routes = require('./routes');
 var managementCommands = require('./management/commands');
 
-var app = express();
+var app = searchServer.EEAFacetFramework();
 
 var env = process.env.NODE_ENV || 'dev'
 
@@ -22,6 +22,8 @@ app.set('nconf', nconf);
 app.set('managementCommands', managementCommands);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+
+app.locals.basedir = '/code';
 
 // Skip non-error codes in production
 var prodLogOpt = {'skip': function(req, res) { return res.statusCode < 400; }};

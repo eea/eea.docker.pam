@@ -10,6 +10,7 @@ var field_base = nconf.get("elastic:field_base");
 var path = require('path');
 
 var fs = require('fs');
+var jade = require('jade');
 
 var fieldsMapping = [
     {'name' : 'pam_2015_EU_ETS_kt_CO2', 'field' : field_base + '2015_EU_ETS_kt_CO2', 'title' : '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -67,12 +68,23 @@ var fieldsMapping = [
 
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
-  res.render('index', {title: 'PAM',
+
+  var indexTemplate = fs.readFileSync('/code/views/index.jade');
+  console.dir(indexTemplate);
+  var indexPage = jade.render(indexTemplate, {title: 'PAM',
+                        basedir:'/',
                         field_base: field_base,
                         'headFile': path.join(templatePath, 'head.html'),
                         'headerFile': path.join(templatePath, 'header.html'),
                         'footerFile': path.join(templatePath, 'footer.html'),
                         'templateRender': fs.readFileSync});
+  res.send(indexPage);
+/*  res.render('index', {title: 'PAM',
+                        field_base: field_base,
+                        'headFile': path.join(templatePath, 'head.html'),
+                        'headerFile': path.join(templatePath, 'header.html'),
+                        'footerFile': path.join(templatePath, 'footer.html'),
+                        'templateRender': fs.readFileSync});*/
 };
 
 exports.details = function(req, res){
