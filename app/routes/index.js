@@ -69,8 +69,12 @@ var fieldsMapping = [
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
 
-  var indexTemplate = fs.readFileSync('/code/views/index.jade');
-  console.dir(indexTemplate);
+  var indexTemplate = fs.readFileSync('/code/views/index.jade', 'utf8');
+
+//  indexTemplate = "extends /code/views/layout \n" + indexTemplate;
+  indexTemplate = "extends /node_modules/eea-searchserver/lib/framework/views/layout \n" + indexTemplate;
+
+  console.log(indexTemplate);
   var indexPage = jade.render(indexTemplate, {title: 'PAM',
                         basedir:'/',
                         field_base: field_base,
