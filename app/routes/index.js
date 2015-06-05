@@ -10,7 +10,7 @@ var field_base = nconf.get("elastic:field_base");
 var path = require('path');
 
 var fs = require('fs');
-var jade = require('jade');
+var searchServer = require('eea-searchserver')
 
 var fieldsMapping = [
     {'name' : 'pam_2015_EU_ETS_kt_CO2', 'field' : field_base + '2015_EU_ETS_kt_CO2', 'title' : '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -69,26 +69,14 @@ var fieldsMapping = [
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
 
-  var indexTemplate = fs.readFileSync('/code/views/index.jade', 'utf8');
-
-//  indexTemplate = "extends /code/views/layout \n" + indexTemplate;
-  indexTemplate = "extends /node_modules/eea-searchserver/lib/framework/views/layout \n" + indexTemplate;
-
-  console.log(indexTemplate);
-  var indexPage = jade.render(indexTemplate, {title: 'PAM',
-                        basedir:'/',
+  var options = {title: 'PAM',
                         field_base: field_base,
                         'headFile': path.join(templatePath, 'head.html'),
                         'headerFile': path.join(templatePath, 'header.html'),
                         'footerFile': path.join(templatePath, 'footer.html'),
-                        'templateRender': fs.readFileSync});
-  res.send(indexPage);
-/*  res.render('index', {title: 'PAM',
-                        field_base: field_base,
-                        'headFile': path.join(templatePath, 'head.html'),
-                        'headerFile': path.join(templatePath, 'header.html'),
-                        'footerFile': path.join(templatePath, 'footer.html'),
-                        'templateRender': fs.readFileSync});*/
+                        'templateRender': fs.readFileSync};
+
+  searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'index.jade'), options)
 };
 
 exports.details = function(req, res){
@@ -127,20 +115,22 @@ exports.details = function(req, res){
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
-            res.render('details', {data: resultobj,
-                                    field_base: field_base,
-                                    'headFile': path.join(templatePath, 'head.html'),
-                                    'headerFile': path.join(templatePath, 'header.html'),
-                                    'footerFile': path.join(templatePath, 'footer.html'),
-                                    'templateRender': fs.readFileSync});
+            options = {data: resultobj,
+                    field_base: field_base,
+                    'headFile': path.join(templatePath, 'head.html'),
+                    'headerFile': path.join(templatePath, 'header.html'),
+                    'footerFile': path.join(templatePath, 'footer.html'),
+                    'templateRender': fs.readFileSync};
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options)
         }
         catch(err){
-            res.render('details', {field_base: field_base,
-                                    pamid: req.query.pamid,
-                                    'headFile': path.join(templatePath, 'head.html'),
-                                    'headerFile': path.join(templatePath, 'header.html'),
-                                    'footerFile': path.join(templatePath, 'footer.html'),
-                                    'templateRender': fs.readFileSync});
+            options = {field_base: field_base,
+                    pamid: req.query.pamid,
+                    'headFile': path.join(templatePath, 'head.html'),
+                    'headerFile': path.join(templatePath, 'header.html'),
+                    'footerFile': path.join(templatePath, 'footer.html'),
+                    'templateRender': fs.readFileSync};
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options)
         }
 
     }
