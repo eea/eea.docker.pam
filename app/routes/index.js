@@ -76,7 +76,7 @@ exports.index = function(req, res){
                         'footerFile': path.join(templatePath, 'footer.html'),
                         'templateRender': fs.readFileSync};
 
-  searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'index.jade'), options)
+  searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'index.jade'), options);
 };
 
 exports.details = function(req, res){
@@ -115,22 +115,23 @@ exports.details = function(req, res){
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
-            options = {data: resultobj,
+            var options = {data: resultobj,
                     field_base: field_base,
                     'headFile': path.join(templatePath, 'head.html'),
                     'headerFile': path.join(templatePath, 'header.html'),
                     'footerFile': path.join(templatePath, 'footer.html'),
                     'templateRender': fs.readFileSync};
-            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options)
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
         catch(err){
-            options = {field_base: field_base,
+            var options = {data:'',
+                    field_base: field_base,
                     pamid: req.query.pamid,
                     'headFile': path.join(templatePath, 'head.html'),
                     'headerFile': path.join(templatePath, 'header.html'),
                     'footerFile': path.join(templatePath, 'footer.html'),
                     'templateRender': fs.readFileSync};
-            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options)
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
 
     }
