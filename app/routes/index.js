@@ -10,6 +10,7 @@ var field_base = nconf.get("elastic:field_base");
 var path = require('path');
 
 var fs = require('fs');
+var searchServer = require('eea-searchserver')
 
 var fieldsMapping = [
     {'name' : 'pam_2015_EU_ETS_kt_CO2', 'field' : field_base + '2015_EU_ETS_kt_CO2', 'title' : '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -67,12 +68,15 @@ var fieldsMapping = [
 
 exports.index = function(req, res){
   var templatePath = nconf.get('external_templates:local_path');
-  res.render('index', {title: 'PAM',
+
+  var options = {title: 'PAM',
                         field_base: field_base,
                         'headFile': path.join(templatePath, 'head.html'),
                         'headerFile': path.join(templatePath, 'header.html'),
                         'footerFile': path.join(templatePath, 'footer.html'),
-                        'templateRender': fs.readFileSync});
+                        'templateRender': fs.readFileSync};
+
+  searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'index.jade'), options);
 };
 
 exports.details = function(req, res){
@@ -111,20 +115,23 @@ exports.details = function(req, res){
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
-            res.render('details', {data: resultobj,
-                                    field_base: field_base,
-                                    'headFile': path.join(templatePath, 'head.html'),
-                                    'headerFile': path.join(templatePath, 'header.html'),
-                                    'footerFile': path.join(templatePath, 'footer.html'),
-                                    'templateRender': fs.readFileSync});
+            var options = {data: resultobj,
+                    field_base: field_base,
+                    'headFile': path.join(templatePath, 'head.html'),
+                    'headerFile': path.join(templatePath, 'header.html'),
+                    'footerFile': path.join(templatePath, 'footer.html'),
+                    'templateRender': fs.readFileSync};
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
         catch(err){
-            res.render('details', {field_base: field_base,
-                                    pamid: req.query.pamid,
-                                    'headFile': path.join(templatePath, 'head.html'),
-                                    'headerFile': path.join(templatePath, 'header.html'),
-                                    'footerFile': path.join(templatePath, 'footer.html'),
-                                    'templateRender': fs.readFileSync});
+            var options = {data:'',
+                    field_base: field_base,
+                    pamid: req.query.pamid,
+                    'headFile': path.join(templatePath, 'head.html'),
+                    'headerFile': path.join(templatePath, 'header.html'),
+                    'footerFile': path.join(templatePath, 'footer.html'),
+                    'templateRender': fs.readFileSync};
+            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
 
     }
