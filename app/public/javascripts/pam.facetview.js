@@ -56,6 +56,7 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
+        rangefacets: [field_base + '2020_total_kt_CO2'],
         facets: [
             {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_ETS', 'display': 'Link to EU Emissions Trading Scheme (ETS)', 'size':'50', 'order': 'term'},
