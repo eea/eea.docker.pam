@@ -32,11 +32,9 @@ app.use(logger);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', searchServer.middleware.templateRequired, routes.index);
-app.get('/index', searchServer.middleware.templateRequired, routes.index);
-app.get('/details', searchServer.middleware.templateRequired, routes.details);
-app.get('/api', searchServer.routes.elasticProxy);
-app.get('/invalidate_templates', searchServer.routes.invalidateTemplates);
+app.get('/', routes.index);
+app.get('/index', routes.index);
+app.get('/details', routes.details);
 
 function checkError(err) {
     if (err) {

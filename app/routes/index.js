@@ -9,7 +9,6 @@ nconf.file({file:'/code/settings.json'});
 var field_base = nconf.get("elastic:field_base");
 var path = require('path');
 
-var fs = require('fs');
 var searchServer = require('eea-searchserver')
 
 var fieldsMapping = [
@@ -67,21 +66,13 @@ var fieldsMapping = [
 ];
 
 exports.index = function(req, res){
-  var templatePath = nconf.get('external_templates:local_path');
-
   var options = {title: 'PAM',
-                        field_base: field_base,
-                        'headFile': path.join(templatePath, 'head.html'),
-                        'headerFile': path.join(templatePath, 'header.html'),
-                        'footerFile': path.join(templatePath, 'footer.html'),
-                        'templateRender': fs.readFileSync};
+                field_base: field_base};
 
-  searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'index.jade'), options);
+  searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'index.jade'), options);
 };
 
 exports.details = function(req, res){
-
-  var templatePath = nconf.get('external_templates:local_path');
 
   if (req.query.pamid === undefined){
       res.send('pamid is missing');
@@ -116,22 +107,14 @@ exports.details = function(req, res){
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
             var options = {data: resultobj,
-                    field_base: field_base,
-                    'headFile': path.join(templatePath, 'head.html'),
-                    'headerFile': path.join(templatePath, 'header.html'),
-                    'footerFile': path.join(templatePath, 'footer.html'),
-                    'templateRender': fs.readFileSync};
-            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
+                    field_base: field_base};
+            searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
         catch(err){
             var options = {data:'',
                     field_base: field_base,
-                    pamid: req.query.pamid,
-                    'headFile': path.join(templatePath, 'head.html'),
-                    'headerFile': path.join(templatePath, 'header.html'),
-                    'footerFile': path.join(templatePath, 'footer.html'),
-                    'templateRender': fs.readFileSync};
-            searchServer.EEAFacetFramework.render(res, path.join(__dirname, '..', 'views', 'details.jade'), options);
+                    pamid: req.query.pamid};
+            searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'details.jade'), options);
         }
 
     }
