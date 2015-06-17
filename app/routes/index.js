@@ -69,7 +69,7 @@ exports.index = function(req, res){
   var options = {title: 'PAM',
                 field_base: field_base};
 
-  searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'index.jade'), options);
+  searchServer.EEAFacetFramework.render(req, res, 'index', options);
 };
 
 exports.details = function(req, res){
@@ -108,13 +108,13 @@ exports.details = function(req, res){
             }
             var options = {data: resultobj,
                     field_base: field_base};
-            searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'details.jade'), options);
+            searchServer.EEAFacetFramework.render(req, res, 'details', options);
         }
         catch(err){
             var options = {data:'',
                     field_base: field_base,
                     pamid: req.query.pamid};
-            searchServer.EEAFacetFramework.render(req, res, path.join(__dirname, '..', 'views', 'details.jade'), options);
+            searchServer.EEAFacetFramework.render(req, res, 'details', options);
         }
 
     }
