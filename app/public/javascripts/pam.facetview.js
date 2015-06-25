@@ -54,20 +54,27 @@ jQuery(document).ready(function($) {
         datatype: 'json',
         initial_search: false,
         enable_rangeselect: true,
-        post_search_callback: viewReady,
         pushstate : false,
         rangefacets: [field_base + '2020_total_kt_CO2'],
+    post_init_callback: function() {
+      add_EEA_settings();
+    },
+    post_search_callback: function() {
+      add_EEA_settings();
+      viewReady();
+    },
+
         facets: [
-            {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_ETS', 'display': 'Link to EU Emissions Trading Scheme (ETS)', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Targeted_sectors', 'display': 'Targeted sectors', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Affected_GHG', 'display': 'Affected GHG', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Projection_scenario_in_which_the_PAM_is_included', 'display': 'Projection scenario in which the PAM is included', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term'},
-            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term'}
+            {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_ETS', 'display': 'Link to EU Emissions Trading Scheme (ETS)', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Targeted_sectors', 'display': 'Targeted sectors', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Affected_GHG', 'display': 'Affected GHG', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Projection_scenario_in_which_the_PAM_is_included', 'display': 'Projection scenario in which the PAM is included', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
+            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term','facet_display_options': ['sort', 'checkbox']}
         ],
 
 
@@ -118,41 +125,18 @@ jQuery(document).ready(function($) {
         paging: {
             from: 0,
             size: 10
-        }
+        },
+        linkify: false,
+        pager_on_top: true
+
+
     });
     replaceNumbers();
-    var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
 
-    $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]').addClass("facet_range_only");
+/*    $('[id="' + field_base + '2020_total_kt_CO2"]').closest(".facetview_filter").addClass("facet_range_only");
 
-    $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
-        var tmp_facet = $(event.target).closest("table");
-        if (tmp_facet.find("a.facetview_filtershow").hasClass("facetview_open")){
-            tmp_facet.find("a.facetview_facetrange").click();
-        }
-        else{
-            var facet_title = tmp_facet.find("a.facetview_filtershow").text().trim();
-            $('.facetview_rangecontainer').each(function(idx, facetrange){
-                var range_title = $(facetrange).children("h3").text().trim();
-                if (range_title === facet_title){
-                    $(facetrange).find('.facetview_facetrange_remove').click();
-                }
-            });
-        }
-    });
-
-    $('#facetview').delegate(".facetview_rangecontainer","click",function(){
-        var range_title = $(event.target).closest(".facetview_rangecontainer").children("h3").text().trim();
-        $(".facetview_open").each(function(idx, facet){
-            var facet_title = $(facet).text().trim();
-            if (facet_title === range_title){
-                $(facet).removeClass("facetview_open");
-                $(facet).children('i').removeClass('icon-minus');
-                $(facet).children('i').addClass('icon-plus');
-
-            }
-        })
-    });
-
-
+    $(".facet_range_only").delegate(".facetview_showtree", "click", function(event){
+        var tmp_facet = $(event.target).closest(".facetview_filter");
+        tmp_facet.find("a.facetview_facetrange").click();
+    });*/
 });

@@ -3,7 +3,7 @@
 app:
     image: eeacms/pam:dev
     ports: # App accessible on http://localhost:3000
-        - 3000:3000
+        - 3010:3000
     volumes: # Mount code as a volume for easy restart
         - ./app/:/code/:ro
     environment: # Use current upstream staging instance
