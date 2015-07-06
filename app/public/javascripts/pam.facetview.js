@@ -54,15 +54,15 @@ jQuery(document).ready(function($) {
         datatype: 'json',
         initial_search: false,
         enable_rangeselect: true,
-        pushstate : false,
+        pushstate : true,
         rangefacets: [field_base + '2020_total_kt_CO2'],
-    post_init_callback: function() {
-      add_EEA_settings();
-    },
-    post_search_callback: function() {
-      add_EEA_settings();
-      viewReady();
-    },
+        post_init_callback: function() {
+          add_EEA_settings();
+        },
+        post_search_callback: function() {
+          add_EEA_settings();
+          viewReady();
+        },
 
         facets: [
             {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term','facet_display_options': ['sort', 'checkbox']},
