@@ -53,6 +53,30 @@ var pamdataMappings = {
     "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Related_EU_policies" : {
         "type" : "string",
         "analyzer" : "semicolon"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_EU_ETS_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_total_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_total_kt_CO2_equivalent_per_year": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_EU_ETS_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_non_ETS_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2025_total_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2030_total_kt_CO2": {
+        "type": "double"
+    },
+    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_non_ETS_kt_CO2": {
+        "type": "double"
     }
 };
 
