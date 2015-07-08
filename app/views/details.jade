@@ -13,9 +13,6 @@ mixin td(item)
 block title
     title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
 
-block extrastyles
-    link(rel='stylesheet', href='css/pam.facetview.css')
-
 block content
     if (data)
         div(id="portal-breadcrumbs")
@@ -154,7 +151,6 @@ block content
             b= pamid 
             span= " does not exist"
 
-block datasources
     div(class="visualization-info")
         h3 Data sources
         a(href="http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1") Climate change mitigation policies and measures
