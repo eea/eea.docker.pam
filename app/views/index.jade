@@ -4,7 +4,12 @@ block title
 block extrajavascripts
     script(type='text/javascript', src='javascripts/pam.facetview.js')
 
+block extrastyles
+    link(rel='stylesheet', href='css/no-more-tables.css')
+    link(rel="stylesheet", href="css/pam.facetview.css")
+
 block content
+    div(id="slider")
     div(id="portal-breadcrumbs")
         span(id="breadcrumbs-you-are-here") You are here: 
         span(id="breadcrumbs-home")
@@ -17,7 +22,6 @@ block content
     p This database contains a number of policies and measures (PAM) implemented or planned by European countries to reduce greenhouse gas emissions. Most of these PAMs have been reported to the European Commission, the United Framework Convention on Climate Change (UNFCCC) or the EEA. The search engine gives access to detailed information for each of these PAMs including, in some cases, the expected reductions in greenhouse gas emissions resulting from the implementation of these PAMs, as estimated by countries.
     .facet-view-simple
 
-block datasources
     div(class="visualization-info")
         h3 Data sources
         a(href="http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1") Climate change mitigation policies and measures
