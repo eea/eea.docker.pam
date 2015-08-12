@@ -1,73 +1,1119 @@
 {
-    "//": "mapping used for details page",
-    "details_mapping": [
-            {"name" : "pam_2015_EU_ETS_kt_CO2", "field" : "2015_EU_ETS_kt_CO2", "title" : "2015 EU ETS (kt CO2-equivalent per year)"},
-            {"name" : "pam_2015_non_ETS_kt_CO2", "field" : "2015_non_ETS_kt_CO2", "title" : "2015 non-ETS (kt CO2-equivalent per year)"},
-            {"name" : "pam_2015_total_kt_CO2_equivalent_per_year", "field" : "2015_total_kt_CO2_equivalent_per_year", "title" : "2015 total (kt CO2-equivalent per year)"},
-            {"name" : "pam_2020_EU_ETS_kt_CO2", "field" : "2020_EU_ETS_kt_CO2", "title" : "2020 EU ETS (kt CO2-equivalent per year)"},
-            {"name" : "pam_2020_non_ETS_kt_CO2", "field" : "2020_non_ETS_kt_CO2", "title" : "2020 non-ETS (kt CO2-equivalent per year)"},
-            {"name" : "pam_2020_total_kt_CO2", "field" : "2020_total_kt_CO2", "title" : "2020 total (kt CO2-equivalent per year)"},
-            {"name" : "pam_2025_total_kt_CO2", "field" : "2025_total_kt_CO2", "title" : "2025 total (kt CO2-equivalent per year)"},
-            {"name" : "pam_2030_total_kt_CO2", "field" : "2030_total_kt_CO2", "title" : "2030 total (kt CO2-equivalent per year)"},
-            {"name" : "Absolute_costs_per_year_in_million_EUR", "field" : "Absolute_costs_per_year_in_million_EUR", "title" : "Absolute costs per year in million EUR"},
-            {"name" : "Additional_comment", "field" : "Additional_comment", "title" : "Additional comment"},
-            {"name" : "Affected_GHG", "field" : "Affected_GHG", "title" : "Affected GHG"},
-            {"name" : "Average_emission_reduction_kt_CO2", "field" : "Average_emission_reduction_kt_CO2", "title" : "Average emission reduction"},
-            {"name" : "Basis_for_estimate", "field" : "Basis_for_estimate", "title" : "Basis for estimate"},
-            {"name" : "Check_of_mandatory_reporting", "field" : "Check_of_mandatory_reporting", "title" : ""},
-            {"name" : "Comment_on_implementation_period", "field" : "Comment_on_implementation_period", "title" : "Comment on implementation period start year"},
-            {"name" : "Comments_by_MS", "field" : "Comments_by_MS", "title" : ""},
-            {"name" : "Costs_in_EUR_per_tonne_CO2_equivalent_reduced_sequestered", "field" : "Costs_in_EUR_per_tonne_CO2_equivalent_reduced_sequestered", "title" : "Costs in EUR per tonne CO2 equivalent reduced/ sequestered"},
-            {"name" : "Country", "field" : "Country", "title" : "Country"},
-            {"name" : "CountryCode", "field" : "CountryCode", "title" : ""},
-            {"name" : "Description", "field" : "Description", "title" : "Description"},
-            {"name" : "Description___basis_for_cost_estimate", "field" : "Description___basis_for_cost_estimate", "title" : "Description - basis for cost estimate"},
-            {"name" : "Details_on_policy_interactions", "field" : "Details_on_policy_interactions", "title" : "Details on policy interactions"},
-            {"name" : "Documentation___source_of_cost_estimate", "field" : "Documentation___source_of_cost_estimate", "title" : "Documentation - source of cost estimation"},
-            {"name" : "End_year", "field" : "End_year", "title" : "End year"},
-            {"name" : "Factors_affected_by_PAM", "field" : "Factors_affected_by_PAM", "title" : "Factors affected by PAM"},
-            {"name" : "Impact_included_in_another_policy_or_policy_package", "field" : "Impact_included_in_another_policy_or_policy_package", "title" : "Impact included in another policy or policy package?"},
-            {"name" : "Inclusion_of_estimate_in_projections", "field" : "Inclusion_of_estimate_in_projections", "title" : "Inclusion of estimate in projections"},
-            {"name" : "Inclusion_of_savings_related_to_EU_policies", "field" : "Inclusion_of_savings_related_to_EU_policies", "title" : "Inclusion of savings from EU policies into estimate"},
-            {"name" : "Indicators_to_monitor_and_evaluate_implementation", "field" : "Indicators_to_monitor_and_evaluate_implementation", "title" : "Indicator(s) to monitor and evaluate implementation"},
-            {"name" : "Interaction_with_other_policies_and_measures_at_the_national_or_EU_level", "field" : "Interaction_with_other_policies_and_measures_at_the_national_or_EU_level", "title" : "Interaction with other policies and measures at the national or EU level"},
-            {"name" : "Link_to_EU_Emissions_Trading_Scheme_ETS", "field" : "Link_to_EU_Emissions_Trading_Scheme_ETS", "title" : "Link to EU Emissions Trading Scheme (ETS)"},
-            {"name" : "Name", "field" : "Name", "title" : "Name"},
-            {"name" : "Name_of_implementing_entities", "field" : "Name_of_implementing_entities", "title" : "Name of implementing entities"},
-            {"name" : "Name_or_organisation_providing_information_on_policy", "field" : "Name_or_organisation_providing_information_on_policy", "title" : "Name or organisation providing information on policy"},
-            {"name" : "Non_GHG_mitigation_benefits", "field" : "Non_GHG_mitigation_benefits", "title" : "Non GHG-mitigation benefits"},
-            {"name" : "Objective", "field" : "Objective", "title" : "Objective"},
-            {"name" : "Other_policy_or_policy_package_in_which_the_impact_is_included", "field" : "Other_policy_or_policy_package_in_which_the_impact_is_included", "title" : "Other policy or /policy package in which the impact is included"},
-            {"name" : "PAMID", "field" : "PAMID", "title" : ""},
-            {"name" : "PAM_No", "field" : "PAM_No", "title" : ""},
-            {"name" : "Primary_EU_policy_responsible_objectives", "field" : "Primary_EU_policy_responsible_objectives", "title" : ""},
-            {"name" : "Projection_scenario_in_which_the_PAM_is_included", "field" : "Projection_scenario_in_which_the_PAM_is_included", "title" : "Projection scenario in which the PAM is included"},
-            {"name" : "Reference_source_of_estimation", "field" : "Reference_source_of_estimation", "title" : "Reference / source for estimation of emission savings"},
-            {"name" : "Related_EU_policies", "field" : "Related_EU_policies", "title" : "Related EU policies"},
-            {"name" : "Secondary_EU_policy_responsible_objectives", "field" : "Secondary_EU_policy_responsible_objectives", "title" : ""},
-            {"name" : "Start_year", "field" : "Start_year", "title" : "Start year"},
-            {"name" : "Status", "field" : "Status", "title" : "Status"},
-            {"name" : "Targeted_sectors", "field" : "Targeted_sectors", "title" : "Targeted sector(s)"},
-            {"name" : "Tertiary_EU_policy_responsible_objectives", "field" : "Tertiary_EU_policy_responsible_objectives", "title" : ""},
-            {"name" : "Type_of_implementing_entities", "field" : "Type_of_implementing_entities", "title" : "Type of implementing entities"},
-            {"name" : "Type_of_instrument", "field" : "Type_of_instrument", "title" : "Type of instrument"},
-            {"name" : "Years_for_which_the_reduction_applies", "field" : "Years_for_which_the_reduction_applies", "title" : "Year(s) for which the reduction applies"}
-        ],
+    "details_settings" : {
+        "show_links": true,
+        "sections": [
+            {"name":"section1", "title":"Inhibition of mineralization of organic soils used as meadows and pastures for their irrigation and reduce the outflow of groundwater", "pos":0},
+            {"name":"section2", "title":"Policy coverage", "pos":1},
+            {"name":"section3", "title":"Policy interactions", "pos":2},
+            {"name":"section4", "title":"Policy monitoring and evaluation", "pos":3},
+            {"name":"section5", "title":"'Ex-ante' estimate of the (projected) effect on GHG emissions and removals <p>Annual savings [kt CO sub 2 equivalent per year]</p>", "pos":4},
+            {"name":"section6", "title":"'Ex-post' estimate of the (current) effect on GHG emissions and removals <p>Annual savings [kt CO sub 2 equivalent per year]</p>", "pos":5},
+            {"name":"section7", "title":"Information on costs", "pos":6},
+            {"name":"section8", "title":"Other information", "pos":7}
+        ]
+    },
+    "listing_settings" : {
+        "show_links": false
+    },
+    "fields_mapping": [
+        {
+            "name": "2015_EU_ETS_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2015 EU ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 0
+            },
+            "details": {
+                "title": "2015 EU ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 0,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2015_non_ETS_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2015 non-ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 1
+            },
+            "details": {
+                "title": "2015 non-ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 1,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2015_total_kt_CO2_equivalent_per_year",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2015 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 2
+            },
+            "details": {
+                "title": "2015 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 2,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2020_EU_ETS_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2020 EU ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 3
+            },
+            "details": {
+                "title": "2020 EU ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 3,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2020_non_ETS_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2020 non-ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 4
+            },
+            "details": {
+                "title": "2020 non-ETS (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 4,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2020_total_kt_CO2",
+            "listing": {
+                "visible": true,
+                "title": "Total GHG savings by 2020 (in kt CO2 equivalent)",
+                "pos": 7
+            },
+            "csv_tsv": {
+                "title": "2020 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 5
+            },
+            "details": {
+                "title": "2020 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 5,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Total GHG savings by 2020 (in kt CO2 equivalent)",
+                "pos": 9,
+                "type": "range",
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
 
-    "//": "mapping used for csv/tsv download",
-    "download_mapping":{
+        },
+        {
+            "name": "2025_total_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2025 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 6
+            },
+            "details": {
+                "title": "2025 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 6,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "2030_total_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "2030 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 7
+            },
+            "details": {
+                "title": "2030 total (kt CO2-equivalent per year)",
+                "visible": true,
+                "pos": 7,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Absolute_costs_per_year_in_million_EUR",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Absolute costs per year in million EUR",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "title": "Absolute costs per year in million EUR",
+                "visible": true,
+                "pos": 8,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Additional_comment",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Additional comment",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "title": "Additional comment",
+                "visible": true,
+                "pos": 9,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Affected_GHG",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Affected GHG",
+                "visible": true,
+                "pos": 10
+            },
+            "details": {
+                "title": "Affected GHG",
+                "visible": true,
+                "pos": 10,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Affected GHG",
+                "pos": 3,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Average_emission_reduction_kt_CO2",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Average emission reduction",
+                "visible": true,
+                "pos": 11
+            },
+            "details": {
+                "title": "Average emission reduction",
+                "visible": true,
+                "pos": 11,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Basis_for_estimate",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Basis for estimate",
+                "visible": true,
+                "pos": 12
+            },
+            "details": {
+                "title": "Basis for estimate",
+                "visible": true,
+                "pos": 12,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Check_of_mandatory_reporting",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Check of mandatory reporting",
+                "visible": true,
+                "pos": 13
+            },
+            "details": {
+                "title": "Check of mandatory reporting",
+                "visible": true,
+                "pos": 13,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Comment_on_implementation_period",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Comment on implementation period start year",
+                "visible": true,
+                "pos": 14
+            },
+            "details": {
+                "title": "Comment on implementation period start year",
+                "visible": true,
+                "pos": 14,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Comments_by_MS",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Comments by MS",
+                "visible": true,
+                "pos": 15
+            },
+            "details": {
+                "title": "Comments by MS",
+                "visible": true,
+                "pos": 15,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Costs_in_EUR_per_tonne_CO2_equivalent_reduced_sequestered",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Costs in EUR per tonne CO2 equivalent reduced/ sequestered",
+                "visible": true,
+                "pos": 16
+            },
+            "details": {
+                "title": "Costs in EUR per tonne CO2 equivalent reduced/ sequestered",
+                "visible": true,
+                "pos": 16,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Country",
+            "listing": {
+                "title": "Country",
+                "visible": true,
+                "pos": 0
+            },
+            "csv_tsv": {
+                "title": "Country",
+                "visible": true,
+                "pos": 17
+            },
+            "details": {
+                "title": "Country",
+                "visible": true,
+                "pos": 17,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Country",
+                "pos": 0,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
 
-        "//": "if true include all fields from elastic",
-        "use_all_fields": true,
+        },
+        {
+            "name": "CountryCode",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Country Code",
+                "visible": true,
+                "pos": 18
+            },
+            "details": {
+                "title": "Country Code",
+                "visible": true,
+                "pos": 18,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Description",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Description",
+                "visible": true,
+                "pos": 19
+            },
+            "details": {
+                "title": "Description",
+                "visible": true,
+                "pos": 19,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Description___basis_for_cost_estimate",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Description - basis for cost estimate",
+                "visible": true,
+                "pos": 20
+            },
+            "details": {
+                "title": "Description - basis for cost estimate",
+                "visible": true,
+                "pos": 20,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Details_on_policy_interactions",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Details on policy interactions",
+                "visible": true,
+                "pos": 21
+            },
+            "details": {
+                "title": "Details on policy interactions",
+                "visible": true,
+                "pos": 21,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Documentation___source_of_cost_estimate",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Documentation - source of cost estimation",
+                "visible": true,
+                "pos": 22
+            },
+            "details": {
+                "title": "Documentation - source of cost estimation",
+                "visible": true,
+                "pos": 22,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "End_year",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "End year",
+                "visible": true,
+                "pos": 23
+            },
+            "details": {
+                "title": "End year",
+                "visible": true,
+                "pos": 23,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Factors_affected_by_PAM",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Factors affected by PAM",
+                "visible": true,
+                "pos": 24
+            },
+            "details": {
+                "title": "Factors affected by PAM",
+                "visible": true,
+                "pos": 24,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Impact_included_in_another_policy_or_policy_package",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Impact included in another policy or policy package?",
+                "visible": true,
+                "pos": 25
+            },
+            "details": {
+                "title": "Impact included in another policy or policy package?",
+                "visible": true,
+                "pos": 25,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Inclusion_of_estimate_in_projections",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Inclusion of estimate in projections",
+                "visible": true,
+                "pos": 26
+            },
+            "details": {
+                "title": "Inclusion of estimate in projections",
+                "visible": true,
+                "pos": 26,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Inclusion_of_savings_related_to_EU_policies",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Inclusion of savings from EU policies into estimate",
+                "visible": true,
+                "pos": 27
+            },
+            "details": {
+                "title": "Inclusion of savings from EU policies into estimate",
+                "visible": true,
+                "pos": 27,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Indicators_to_monitor_and_evaluate_implementation",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Indicator(s) to monitor and evaluate implementation",
+                "visible": true,
+                "pos": 28
+            },
+            "details": {
+                "title": "Indicator(s) to monitor and evaluate implementation",
+                "visible": true,
+                "pos": 28,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Interaction_with_other_policies_and_measures_at_the_national_or_EU_level",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Interaction with other policies and measures at the national or EU level",
+                "visible": true,
+                "pos": 29
+            },
+            "details": {
+                "title": "Interaction with other policies and measures at the national or EU level",
+                "visible": true,
+                "pos": 29,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Link_to_EU_Emissions_Trading_Scheme_ETS",
+            "listing": {
+                "visible": true,
+                "title": "Link to EU Emissions Trading Scheme (ETS)",
+                "pos": 1
+            },
+            "csv_tsv": {
+                "title": "Link to EU Emissions Trading Scheme (ETS)",
+                "visible": true,
+                "pos": 30
+            },
+            "details": {
+                "title": "Link to EU Emissions Trading Scheme (ETS)",
+                "visible": true,
+                "pos": 30,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Link to EU Emissions Trading Scheme (ETS)",
+                "pos": 1,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Name",
+            "listing": {
+                "visible": true,
+                "title": "Name",
+                "pos": 4
+            },
+            "csv_tsv": {
+                "title": "Name",
+                "visible": true,
+                "pos": 31
+            },
+            "details": {
+                "title": "Name",
+                "visible": true,
+                "pos": 31,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Name_of_implementing_entities",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Name of implementing entities",
+                "visible": true,
+                "pos": 32
+            },
+            "details": {
+                "title": "Name of implementing entities",
+                "visible": true,
+                "pos": 32,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Name_or_organisation_providing_information_on_policy",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Name or organisation providing information on policy",
+                "visible": true,
+                "pos": 33
+            },
+            "details": {
+                "title": "Name or organisation providing information on policy",
+                "visible": true,
+                "pos": 33,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Non_GHG_mitigation_benefits",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Non GHG-mitigation benefits",
+                "visible": true,
+                "pos": 34
+            },
+            "details": {
+                "title": "Non GHG-mitigation benefits",
+                "visible": true,
+                "pos": 34,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Objective",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Objective",
+                "visible": true,
+                "pos": 35
+            },
+            "details": {
+                "title": "Objective",
+                "visible": true,
+                "pos": 35,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Other_policy_or_policy_package_in_which_the_impact_is_included",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Other policy or /policy package in which the impact is included",
+                "visible": true,
+                "pos": 36
+            },
+            "details": {
+                "title": "Other policy or /policy package in which the impact is included",
+                "visible": true,
+                "pos": 36,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "PAMID",
+            "listing": {
+                "visible": true,
+                "title": "pamid",
+                "pos": 3
+            },
+            "csv_tsv": {
+                "title": "PAMID",
+                "visible": true,
+                "pos": 37
+            },
+            "details": {
+                "title": "PAMID",
+                "visible": true,
+                "pos": 37,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "PAM_No",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "PAM_No",
+                "visible": true,
+                "pos": 38
+            },
+            "details": {
+                "title": "PAM_No",
+                "visible": true,
+                "pos": 38,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Primary_EU_policy_responsible_objectives",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Primary EU policy responsible objectives",
+                "visible": true,
+                "pos": 39
+            },
+            "details": {
+                "title": "Primary EU policy responsible objectives",
+                "visible": true,
+                "pos": 39,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Projection_scenario_in_which_the_PAM_is_included",
+            "listing": {
+                "visible": true,
+                "title": "Projection scenario in which the PAM is included",
+                "pos": 6
+            },
+            "csv_tsv": {
+                "title": "Projection scenario in which the PAM is included",
+                "visible": true,
+                "pos": 40
+            },
+            "details": {
+                "title": "Projection scenario in which the PAM is included",
+                "visible": true,
+                "pos": 40,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Projection scenario in which the PAM is included",
+                "pos": 5,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
 
-        "//": "if true use the mapping from the detail_mapping, if use_all_fields is false, only these fields will be used in the download",
-        "//": "title is used if it exists in the mapping, otherwise name is used",
-        "use_mapping_from_details_mapping":true,
+        },
+        {
+            "name": "Reference_source_of_estimation",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Reference / source for estimation of emission savings",
+                "visible": true,
+                "pos": 41
+            },
+            "details": {
+                "title": "Reference / source for estimation of emission savings",
+                "visible": true,
+                "pos": 41,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Related_EU_policies",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Related EU policies",
+                "visible": true,
+                "pos": 42
+            },
+            "details": {
+                "title": "Related EU policies",
+                "visible": true,
+                "pos": 42,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Related EU policies",
+                "pos": 7,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Secondary_EU_policy_responsible_objectives",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Secondary EU policy responsible objectives",
+                "visible": true,
+                "pos": 43
+            },
+            "details": {
+                "title": "Secondary EU policy responsible objectives",
+                "visible": true,
+                "pos": 43,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Start_year",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Start year",
+                "visible": true,
+                "pos": 44
+            },
+            "details": {
+                "title": "Start year",
+                "visible": true,
+                "pos": 44,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Status",
+            "listing": {
+                "visible": true,
+                "title": "Status",
+                "pos": 5
+            },
+            "csv_tsv": {
+                "title": "Status",
+                "visible": true,
+                "pos": 45
+            },
+            "details": {
+                "title": "Status",
+                "visible": true,
+                "pos": 45,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Status",
+                "pos": 4,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Targeted_sectors",
+            "listing": {
+                "visible": true,
+                "title": "Targeted sectors",
+                "pos": 2
+            },
+            "csv_tsv": {
+                "title": "Targeted sector(s)",
+                "visible": true,
+                "pos": 46
+            },
+            "details": {
+                "title": "Targeted sector(s)",
+                "visible": true,
+                "pos": 46,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Targeted sectors",
+                "pos": 2,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Tertiary_EU_policy_responsible_objectives",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Tertiary EU policy responsible objectives",
+                "visible": true,
+                "pos": 47
+            },
+            "details": {
+                "title": "Tertiary EU policy responsible objectives",
+                "visible": true,
+                "pos": 47,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "Type_of_implementing_entities",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Type of implementing entities",
+                "visible": true,
+                "pos": 48
+            },
+            "details": {
+                "title": "Type of implementing entities",
+                "visible": true,
+                "pos": 48,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Type of implementing entities",
+                "pos": 8,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Type_of_instrument",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Type of instrument",
+                "visible": true,
+                "pos": 49
+            },
+            "details": {
+                "title": "Type of instrument",
+                "visible": true,
+                "pos": 49,
+                "section" : ""
+            },
+            "facet": {
+                "visible": true,
+                "title": "Type of instrument",
+                "pos": 6,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Years_for_which_the_reduction_applies",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Year(s) for which the reduction applies",
+                "visible": true,
+                "pos": 50
+            },
+            "details": {
+                "title": "Year(s) for which the reduction applies",
+                "visible": true,
+                "pos": 50,
+                "section" : ""
+            },
+            "facet": {
+                "visible": false
+            }
+        }
+    ]
 
-        "//": "download specific mapping, it should look similar as the details_mapping, name is not required, only field and title are used",
-        "mapping":[],
-
-        "//": "order of fields from es in the export, if specified, use_all_fields is ignored and only these fields will be used in the download",
-        "order": []
-    }
 }
