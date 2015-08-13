@@ -6,8 +6,8 @@
             {"name":"section2", "title":"Policy coverage", "pos":1},
             {"name":"section3", "title":"Policy interactions", "pos":2},
             {"name":"section4", "title":"Policy monitoring and evaluation", "pos":3},
-            {"name":"section5", "title":"'Ex-ante' estimate of the (projected) effect on GHG emissions and removals <p>Annual savings [kt CO sub 2 equivalent per year]</p>", "pos":4},
-            {"name":"section6", "title":"'Ex-post' estimate of the (current) effect on GHG emissions and removals <p>Annual savings [kt CO sub 2 equivalent per year]</p>", "pos":5},
+            {"name":"section5", "title":"'Ex-ante' estimate of the (projected) effect on GHG emissions and removals", "pos":4},
+            {"name":"section6", "title":"'Ex-post' estimate of the (current) effect on GHG emissions and removals", "pos":5},
             {"name":"section7", "title":"Information on costs", "pos":6},
             {"name":"section8", "title":"Other information", "pos":7}
         ]
