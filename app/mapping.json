@@ -375,7 +375,13 @@
             "listing": {
                 "title": "Country",
                 "visible": true,
-                "pos": 0
+                "pos": 0,
+                "display": {
+                    "pre": "",
+                    "field": "Country",
+                    "post": "</td>"
+                }
+
             },
             "csv_tsv": {
                 "title": "Country",
@@ -672,7 +678,11 @@
             "listing": {
                 "visible": true,
                 "title": "Name",
-                "pos": 4
+                "pos": 4,
+                "display": {
+                    "field": "Name",
+                    "post": "</a></td>"
+                }
             },
             "csv_tsv": {
                 "title": "Name",
@@ -793,8 +803,13 @@
             "name": "PAMID",
             "listing": {
                 "visible": true,
-                "title": "pamid",
-                "pos": 3
+                "title": "",
+                "pos": 3,
+                "display" : {
+                    "pre": "<td><a href='./details?pamid=",
+                    "field": "PAMID",
+                    "post": "'>"
+                }
             },
             "csv_tsv": {
                 "title": "PAMID",
