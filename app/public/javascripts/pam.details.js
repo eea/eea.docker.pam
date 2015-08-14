@@ -39,5 +39,5 @@ jQuery(document).ready(function($) {
                 .appendTo("tr."+table.rows[rowidx].head);
         }
     }
-//    jQuery(".toremove").remove();
+    jQuery(".toremove").remove();
 });
