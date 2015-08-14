@@ -16,6 +16,8 @@ jQuery(document).ready(function($) {
     jQuery("<table>")
         .addClass("projected-table item_detail_table datatable")
         .insertAfter(".section5_container table");
+    jQuery("<colgroup>")
+        .appendTo(".projected-table");
     jQuery("<tbody>")
         .appendTo(".projected-table");
     jQuery("<tr>")
@@ -25,6 +27,9 @@ jQuery(document).ready(function($) {
         jQuery("<th>")
             .text(table.cols[idx])
             .appendTo(".projected-table tbody tr");
+        jQuery("<col>")
+            .css("width", "25%")
+            .appendTo(".projected-table colgroup");
     }
     for (var rowidx = 0; rowidx < table.rows.length; rowidx++){
         jQuery("<tr>")
