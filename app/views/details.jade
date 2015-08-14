@@ -1,15 +1,3 @@
-mixin tr_th_td(item)
-    if(item)
-        tr
-            th= item.label
-            td= item.value
-
-mixin td(item)
-    if(item)
-        td= item.value
-    else
-        td 
-
 block title
     title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
 
@@ -31,7 +19,7 @@ block content
 
         h1= data.Name.value
 
-        +detail_tables (sections, data)
+        +detail_tables (sections, data, "", true)
 
     else
         div(class = "portalMessage errorMessage")
