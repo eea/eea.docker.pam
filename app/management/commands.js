@@ -70,14 +70,12 @@ function reindex() {
 
 function createIndex() {
     var elastic = require('nconf').get('elastic');
-
+console.log(elastic);
+console.log(getOptions());
     new esAPI(getOptions())
-        .PUT(elastic.index, analyzers,
-             callback('Setting up new index and analyzers'))
-        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
-        .PUT('_river/new_pam/_meta', syncReq, callback('Adding river back'))
-        .execute();
+            .indexFromQuery(config.endpoint, config.queryTemplate, null, elastic, analyzers);
 }
+
 
 function showHelp() {
     console.log('List of available commands:');
