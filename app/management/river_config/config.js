@@ -7,7 +7,7 @@
 // RDF endpoint to query
 var path = require('path');
 
-var endpoint = "http://cr.eionet.europa.eu/sparql";
+var endpoint = "http://semantic.eea.europa.eu/sparql";
 
 fs = require("fs")
 

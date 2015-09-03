@@ -1,0 +1,22 @@
+PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam2015dummy.csv#>
+SELECT *
+FROM <http://semantic.eea.europa.eu/home/szabozo0/pam2015dummy.csv>
+WHERE {
+OPTIONAL { _:rec tableFile:PaM_ID ?_id } .
+OPTIONAL { _:rec tableFile:Country ?Country } .
+OPTIONAL { _:rec tableFile:Name_of_PaM ?Name_of_PaM } .
+OPTIONAL { _:rec tableFile:Single_or_group_of_PAMs ?Single_or_group_of_PAMs } .
+OPTIONAL { _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument } .
+OPTIONAL { _:rec tableFile:Status_of_implementation ?Status_of_implementation } .
+OPTIONAL { _:rec tableFile:Policy_impacting_EU_ETS_or_ESD ?Policy_impacting_EU_ETS_or_ESD } .
+OPTIONAL { _:rec tableFile:Sectors_affected ?Sectors_affected } .
+OPTIONAL { _:rec tableFile:GHG_emissions_reductions_2020_total_ktCO2 ?GHG_emissions_reductions_2020_total_ktCO2 } .
+OPTIONAL { _:rec tableFile:GHG_emissions_reductions_2030_total_kt_CO2 ?GHG_emissions_reductions_2030_total_kt_CO2 } .
+OPTIONAL { _:rec tableFile:ReportID ?ReportID } .
+OPTIONAL { _:rec tableFile:Objectives ?Objectives } .
+OPTIONAL { _:rec tableFile:Type_of_responsible_Entity ?Type_of_responsible_Entity } .
+OPTIONAL { _:rec tableFile:Implementation_start_year ?Implementation_start_year } .
+OPTIONAL { _:rec tableFile:Related_Union_policy ?Related_Union_policy } .
+OPTIONAL { _:rec tableFile:GHG_afected ?GHG_afected } .
+OPTIONAL { _:rec tableFile:Projection_scenario_in_which_PaM_is_included ?Projection_scenario_in_which_PaM_is_included } .
+}
