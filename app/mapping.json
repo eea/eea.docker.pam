@@ -10,16 +10,24 @@
     },
     "fields_mapping": [
         {
+            "name": "details_ext_url",
+            "listing": {
+                "visible": true,
+                "title": "Details",
+                "pos": 0,
+                "display": {
+                    "pre": "<a class='detail_link' href='",
+                    "field": "details_ext_url",
+                    "post": "'>Details</a></td>"
+                }
+            }
+        },
+        {
             "name": "Country",
             "listing": {
                 "visible": true,
                 "title": "Country",
-                "pos": 0,
-                "display": {
-                    "pre": "",
-                    "field": "Country",
-                    "post": "</td>"
-                }
+                "pos": 1
             },
             "csv_tsv": {
                 "title": "Country",
@@ -41,7 +49,7 @@
             "listing": {
                 "visible": true,
                 "title": "Name of PaM",
-                "pos": 1
+                "pos": 2
             },
             "csv_tsv": {
                 "title": "Name of PaM",
@@ -57,7 +65,7 @@
             "listing": {
                 "visible": true,
                 "title": "Single or group of PAMs",
-                "pos": 2
+                "pos": 3
             },
             "csv_tsv": {
                 "title": "Single or group of PAMs",
@@ -79,7 +87,7 @@
             "listing": {
                 "visible": true,
                 "title": "Type of policy instrument",
-                "pos": 3
+                "pos": 4
             },
             "csv_tsv": {
                 "title": "Type of policy instrument",
@@ -101,7 +109,7 @@
             "listing": {
                 "visible": true,
                 "title": "Status of implementation",
-                "pos": 4
+                "pos": 5
             },
             "csv_tsv": {
                 "title": "Status of implementation",
@@ -123,7 +131,7 @@
             "listing": {
                 "visible": true,
                 "title": "Policy impacting EU ETS or ESD",
-                "pos": 5
+                "pos": 6
             },
             "csv_tsv": {
                 "title": "Policy impacting EU ETS or ESD",
@@ -132,7 +140,7 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Status of implementation",
+                "title": "Policy impacting EU ETS or ESD",
                 "pos": 3,
                 "type": "facet",
                 "size": 50,
@@ -145,7 +153,7 @@
             "listing": {
                 "visible": true,
                 "title": "Sectors affected",
-                "pos": 6
+                "pos": 7
             },
             "csv_tsv": {
                 "title": "Sectors affected",
@@ -167,7 +175,7 @@
             "listing": {
                 "visible": true,
                 "title": "GHG emissions reductions 2020 total kt CO2",
-                "pos": 7
+                "pos": 8
             },
             "csv_tsv": {
                 "title": "GHG emissions reductions 2020 total kt CO2",
@@ -188,7 +196,7 @@
             "listing": {
                 "visible": true,
                 "title": "GHG emissions reductions 2030 total kt CO2",
-                "pos": 8
+                "pos": 9
             },
             "csv_tsv": {
                 "title": "GHG emissions reductions 2030 total kt CO2",
@@ -288,18 +296,18 @@
             }
         },
         {
-            "name": "GHG_afected",
+            "name": "GHG_affected",
             "listing": {
                 "visible": false
             },
             "csv_tsv": {
-                "title": "GHG afected",
+                "title": "GHG affected",
                 "visible": true,
                 "pos": 13
             },
             "facet": {
                 "visible": true,
-                "title": "GHG afected",
+                "title": "GHG affected",
                 "pos": 11,
                 "type": "facet",
                 "size": 50,
