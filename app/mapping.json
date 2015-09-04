@@ -10,24 +10,17 @@
     },
     "fields_mapping": [
         {
-            "name": "details_ext_url",
-            "listing": {
-                "visible": true,
-                "title": "Details",
-                "pos": 0,
-                "display": {
-                    "pre": "<a class='detail_link' href='",
-                    "field": "details_ext_url",
-                    "post": "'>Details</a></td>"
-                }
-            }
-        },
-        {
             "name": "Country",
             "listing": {
                 "visible": true,
                 "title": "Country",
-                "pos": 1
+                "pos": 0,
+                "display": {
+                    "pre": "",
+                    "field": "Country",
+                    "post": "</td>"
+                }
+
             },
             "csv_tsv": {
                 "title": "Country",
@@ -44,12 +37,31 @@
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
+
+        {
+            "name": "details_ext_url",
+            "listing": {
+                "visible": true,
+                "title": "",
+                "pos": 1,
+                "display": {
+                    "pre": "<td><a class='details_link' href='",
+                    "field": "details_ext_url",
+                    "post":"'>"
+                }
+            }
+        },
         {
             "name": "Name_of_PaM",
             "listing": {
                 "visible": true,
                 "title": "Name of PaM",
-                "pos": 2
+                "pos": 2,
+                "display": {
+                    "pre": "",
+                    "field": "Name_of_PaM",
+                    "post":"</a></td>"
+                }
             },
             "csv_tsv": {
                 "title": "Name of PaM",
@@ -218,7 +230,9 @@
         {
             "name": "Objectives",
             "listing": {
-                "visible": false
+                "visible": true,
+                "title": "Objectives",
+                "pos": 10
             },
             "csv_tsv": {
                 "title": "Objectives",
@@ -238,7 +252,9 @@
         {
             "name": "Type_of_responsible_Entity",
             "listing": {
-                "visible": false
+                "visible": true,
+                "title": "Type of responsible Entity",
+                "pos": 11
             },
             "csv_tsv": {
                 "title": "Type of responsible Entity",
@@ -258,7 +274,9 @@
         {
             "name": "Implementation_start_year",
             "listing": {
-                "visible": false
+                "visible": true,
+                "title": "Implementation start year",
+                "pos": 12
             },
             "csv_tsv": {
                 "title": "Implementation start year",
@@ -278,7 +296,9 @@
         {
             "name": "Related_Union_policy",
             "listing": {
-                "visible": false
+                "visible": true,
+                "title": "Related Union policy",
+                "pos": 13
             },
             "csv_tsv": {
                 "title": "Related Union policy",
@@ -298,7 +318,9 @@
         {
             "name": "GHG_affected",
             "listing": {
-                "visible": false
+                "title": "GHG affected",
+                "visible": true,
+                "pos": 14
             },
             "csv_tsv": {
                 "title": "GHG affected",
@@ -318,7 +340,9 @@
         {
             "name": "Projection_scenario_in_which_PaM_is_included",
             "listing": {
-                "visible": false
+                "title": "Projection scenario in which PaM is included",
+                "visible": true,
+                "pos": 15
             },
             "csv_tsv": {
                 "title": "Projection scenario in which PaM is included",
