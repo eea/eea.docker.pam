@@ -22,11 +22,11 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Name_of_PaM"  : {
+    "?Name_of_policy_or_measure"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "Single_or_group_of_PAMs"  : {
+    "Single_policy_or_measure__or_group_of_measures"  : {
         "type" : "string",
         "analyzer" : "none"
     },
@@ -38,41 +38,41 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Policy_impacting_EU_ETS_or_ESD"  : {
+    "Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Sectors_affected"  : {
+    "Sector_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "GHG_emissions_reductions_2020_total_ktCO2"  : {
+    "Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_"  : {
         "type" : "double"
     },
-    "GHG_emissions_reductions_2030_total_kt_CO2"  : {
+    "Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_"  : {
         "type" : "double"
     },
-    "Objectives"  : {
+    "Objective"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Type_of_responsible_Entity"  : {
+    "Entities_responsible_for_implementing_the_policy"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Implementation_start_year"  : {
+    "Implementation_period_start"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Related_Union_policy"  : {
+    "Is_the_policy_or_measure_related_to_a_Union_policy_"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "GHG_afected"  : {
+    "GHG_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Projection_scenario_in_which_PaM_is_included"  : {
+    "Projection_scenario_in_which_the_policy_or_measure_is_included"  : {
         "type" : "string",
         "analyzer" : "coma"
     }

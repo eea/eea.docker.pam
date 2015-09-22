@@ -39,32 +39,32 @@
         },
 
         {
-            "name": "details_ext_url",
+            "name": "Link_to_national_report",
             "listing": {
                 "visible": true,
                 "title": "",
                 "pos": 1,
                 "display": {
                     "pre": "<td><a class='details_link' href='",
-                    "field": "details_ext_url",
+                    "field": "Link_to_national_report",
                     "post":"'>"
                 }
             }
         },
         {
-            "name": "Name_of_PaM",
+            "name": "Name_of_policy_or_measure",
             "listing": {
                 "visible": true,
-                "title": "Name of PaM",
+                "title": "Name of policy or measure",
                 "pos": 2,
                 "display": {
                     "pre": "",
-                    "field": "Name_of_PaM",
+                    "field": "Name_of_policy_or_measure",
                     "post":"</a></td>"
                 }
             },
             "csv_tsv": {
-                "title": "Name of PaM",
+                "title": "Name of policy or measure",
                 "visible": true,
                 "pos": 1
             },
@@ -73,20 +73,20 @@
             }
         },
         {
-            "name": "Single_or_group_of_PAMs",
+            "name": "Single_policy_or_measure__or_group_of_measures",
             "listing": {
                 "visible": true,
-                "title": "Single or group of PAMs",
+                "title": "Single policy or measure, or group of measures",
                 "pos": 3
             },
             "csv_tsv": {
-                "title": "Single or group of PAMs",
+                "title": "Single policy or measure, or group of measures",
                 "visible": true,
                 "pos": 2
             },
             "facet": {
                 "visible": true,
-                "title": "Single or group of PAMs",
+                "title": "Single policy or measure, or group of measures",
                 "pos": 1,
                 "type": "facet",
                 "size": 50,
@@ -139,20 +139,21 @@
             }
         },
         {
-            "name": "Policy_impacting_EU_ETS_or_ESD",
+            "name": "Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_",
             "listing": {
                 "visible": true,
-                "title": "Policy impacting EU ETS or ESD",
+                "title": "Policy or measure impacting emissions under the EU ETS (emissions trading), the ESD (outside the ETS) or LULUCF (land use, land-use change and forestry)",
+
                 "pos": 6
             },
             "csv_tsv": {
-                "title": "Policy impacting EU ETS or ESD",
+                "title": "Policy or measure impacting emissions under the EU ETS (emissions trading), the ESD (outside the ETS) or LULUCF (land use, land-use change and forestry)",
                 "visible": true,
                 "pos": 5
             },
             "facet": {
                 "visible": true,
-                "title": "Policy impacting EU ETS or ESD",
+                "title": "Policy or measure impacting emissions under the EU ETS (emissions trading), the ESD (outside the ETS) or LULUCF (land use, land-use change and forestry)",
                 "pos": 3,
                 "type": "facet",
                 "size": 50,
@@ -161,20 +162,20 @@
             }
         },
         {
-            "name": "Sectors_affected",
+            "name": "Sector_s__affected",
             "listing": {
                 "visible": true,
-                "title": "Sectors affected",
+                "title": "Sector(s) affected",
                 "pos": 7
             },
             "csv_tsv": {
-                "title": "Sectors affected",
+                "title": "Sector(s) affected",
                 "visible": true,
                 "pos": 6
             },
             "facet": {
                 "visible": true,
-                "title": "Sectors affected",
+                "title": "Sector(s) affected",
                 "pos": 4,
                 "type": "facet",
                 "size": 50,
@@ -183,20 +184,20 @@
             }
         },
         {
-            "name": "GHG_emissions_reductions_2020_total_ktCO2",
+            "name": "Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_",
             "listing": {
                 "visible": true,
-                "title": "GHG emissions reductions 2020 total kt CO2",
+                "title": "Total GHG emissions reductions in 2020 (kt CO2-equivalent per year)",
                 "pos": 8
             },
             "csv_tsv": {
-                "title": "GHG emissions reductions 2020 total kt CO2",
+                "title": "Total GHG emissions reductions in 2020 (kt CO2-equivalent per year)",
                 "visible": true,
                 "pos": 7
             },
             "facet": {
                 "visible": true,
-                "title": "GHG emissions reductions 2020 total kt CO2",
+                "title": "Total GHG emissions reductions in 2020 (kt CO2-equivalent per year)",
                 "pos": 5,
                 "type": "range",
                 "order": "term",
@@ -204,14 +205,14 @@
             }
         },
         {
-            "name": "GHG_emissions_reductions_2030_total_kt_CO2",
+            "name": "Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_",
             "listing": {
                 "visible": true,
-                "title": "GHG emissions reductions 2030 total kt CO2",
+                "title": "Total GHG emissions reductions in 2030 (kt CO2-equivalent per year)",
                 "pos": 9
             },
             "csv_tsv": {
-                "title": "GHG emissions reductions 2030 total kt CO2",
+                "title": "Total GHG emissions reductions in 2030 (kt CO2-equivalent per year)",
                 "visible": true,
                 "pos": 8
             },
@@ -224,24 +225,21 @@
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
-
-
-
         {
-            "name": "Objectives",
+            "name": "Objective",
             "listing": {
                 "visible": true,
-                "title": "Objectives",
+                "title": "Objective",
                 "pos": 10
             },
             "csv_tsv": {
-                "title": "Objectives",
+                "title": "Objective",
                 "visible": true,
                 "pos": 9
             },
             "facet": {
                 "visible": true,
-                "title": "Objectives",
+                "title": "Objective",
                 "pos": 7,
                 "type": "facet",
                 "size": 50,
@@ -250,20 +248,20 @@
             }
         },
         {
-            "name": "Type_of_responsible_Entity",
+            "name": "Entities_responsible_for_implementing_the_policy",
             "listing": {
                 "visible": true,
-                "title": "Type of responsible Entity",
+                "title": "Entities responsible for implementing the policy",
                 "pos": 11
             },
             "csv_tsv": {
-                "title": "Type of responsible Entity",
+                "title": "Entities responsible for implementing the policy",
                 "visible": true,
                 "pos": 10
             },
             "facet": {
                 "visible": true,
-                "title": "Type of responsible Entity",
+                "title": "Entities responsible for implementing the policy",
                 "pos": 8,
                 "type": "facet",
                 "size": 50,
@@ -272,20 +270,20 @@
             }
         },
         {
-            "name": "Implementation_start_year",
+            "name": "Implementation_period_start",
             "listing": {
                 "visible": true,
-                "title": "Implementation start year",
+                "title": "Implementation period start",
                 "pos": 12
             },
             "csv_tsv": {
-                "title": "Implementation start year",
+                "title": "Implementation period start",
                 "visible": true,
                 "pos": 11
             },
             "facet": {
                 "visible": true,
-                "title": "Implementation start year",
+                "title": "Implementation period start",
                 "pos": 9,
                 "type": "facet",
                 "size": 50,
@@ -294,20 +292,20 @@
             }
         },
         {
-            "name": "Related_Union_policy",
+            "name": "Is_the_policy_or_measure_related_to_a_Union_policy_",
             "listing": {
                 "visible": true,
-                "title": "Related Union policy",
+                "title": "Is the policy or measure related to a Union policy?",
                 "pos": 13
             },
             "csv_tsv": {
-                "title": "Related Union policy",
+                "title": "Is the policy or measure related to a Union policy?",
                 "visible": true,
                 "pos": 12
             },
             "facet": {
                 "visible": true,
-                "title": "Related Union policy",
+                "title": "Is the policy or measure related to a Union policy?",
                 "pos": 10,
                 "type": "facet",
                 "size": 50,
@@ -316,20 +314,20 @@
             }
         },
         {
-            "name": "GHG_affected",
+            "name": "GHG_s__affected",
             "listing": {
-                "title": "GHG affected",
+                "title": "GHG(s) affected",
                 "visible": true,
                 "pos": 14
             },
             "csv_tsv": {
-                "title": "GHG affected",
+                "title": "GHG(s) affected",
                 "visible": true,
                 "pos": 13
             },
             "facet": {
                 "visible": true,
-                "title": "GHG affected",
+                "title": "GHG(s) affected",
                 "pos": 11,
                 "type": "facet",
                 "size": 50,
@@ -338,20 +336,20 @@
             }
         },
         {
-            "name": "Projection_scenario_in_which_PaM_is_included",
+            "name": "Projection_scenario_in_which_the_policy_or_measure_is_included",
             "listing": {
-                "title": "Projection scenario in which PaM is included",
+                "title": "Projection scenario in which the policy or measure is included",
                 "visible": true,
                 "pos": 15
             },
             "csv_tsv": {
-                "title": "Projection scenario in which PaM is included",
+                "title": "Projection scenario in which the policy or measure is included",
                 "visible": true,
                 "pos": 14
             },
             "facet": {
                 "visible": true,
-                "title": "Projection scenario in which PaM is included",
+                "title": "Projection scenario in which the policy or measure is included",
                 "pos": 12,
                 "type": "facet",
                 "size": 50,

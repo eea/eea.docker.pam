@@ -1,47 +1,43 @@
-PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam2015dummy.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/PAM_viewer_Flat_Table_180915.csv#>
 SELECT
- 
-(concat(
-"http://cdr.eionet.europa.eu/Converters/run_conversion?file=",
-fn:substring-before(fn:substring-after(?ReportID,"cdr.eionet.europa.eu/"),"#"),
-"&conv=524&source=remote#pam",
-?_id) as ?details_ext_url)
+?Link_to_national_report
 ?_id
 ?Country
-?Name_of_PaM
-?Single_or_group_of_PAMs
+?Name_of_policy_or_measure
+?Single_policy_or_measure__or_group_of_measures
 ?Type_of_policy_instrument
 ?Status_of_implementation
-?Policy_impacting_EU_ETS_or_ESD
-?Sectors_affected
-?GHG_emissions_reductions_2020_total_ktCO2
-?GHG_emissions_reductions_2030_total_kt_CO2
-?ReportID
-?PaM_ID
-?Objectives
-?Type_of_responsible_Entity
-?Implementation_start_year
-?Related_Union_policy
-?GHG_affected
-?Projection_scenario_in_which_PaM_is_included
-FROM <http://semantic.eea.europa.eu/home/szabozo0/pam2015dummy.csv>
+?Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_ETS__or_LULUCF__land_use__land_use_change_and_forestry_
+?Sector_s__affected
+?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_
+?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_
+?Link_to_national_report
+?PAM_number
+?Objective
+?Entities_responsible_for_implementing_the_policy
+?Implementation_period_start
+?Is_the_policy_or_measure_related_to_a_Union_policy_
+?GHG_s__affected
+?Projection_scenario_in_which_the_policy_or_measure_is_included
+
+FROM <http://semantic.eea.europa.eu/home/szabozo0/PAM_viewer_Flat_Table_180915.csv>
 WHERE {
-_:rec tableFile:PaM_ID ?_id .
+_:rec tableFile:PAM_number ?_id .
 _:rec tableFile:Country ?Country .
-_:rec tableFile:Name_of_PaM ?Name_of_PaM .
-_:rec tableFile:Single_or_group_of_PAMs ?Single_or_group_of_PAMs .
+_:rec tableFile:Name_of_policy_or_measure ?Name_of_policy_or_measure .
+_:rec tableFile:Single_policy_or_measure__or_group_of_measures ?Single_policy_or_measure__or_group_of_measures .
 _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument .
 _:rec tableFile:Status_of_implementation ?Status_of_implementation .
-_:rec tableFile:Policy_impacting_EU_ETS_or_ESD ?Policy_impacting_EU_ETS_or_ESD .
-_:rec tableFile:Sectors_affected ?Sectors_affected .
-_:rec tableFile:GHG_emissions_reductions_2020_total_ktCO2 ?GHG_emissions_reductions_2020_total_ktCO2 .
-_:rec tableFile:GHG_emissions_reductions_2030_total_kt_CO2 ?GHG_emissions_reductions_2030_total_kt_CO2 .
-_:rec tableFile:ReportID ?ReportID .
-_:rec tableFile:PaM_ID ?PaM_ID .
-_:rec tableFile:Objectives ?Objectives .
-_:rec tableFile:Type_of_responsible_Entity ?Type_of_responsible_Entity .
-_:rec tableFile:Implementation_start_year ?Implementation_start_year .
-_:rec tableFile:Related_Union_policy ?Related_Union_policy .
-_:rec tableFile:GHG_afected ?GHG_affected .
-_:rec tableFile:Projection_scenario_in_which_PaM_is_included ?Projection_scenario_in_which_PaM_is_included .
+_:rec tableFile:Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_ETS__or_LULUCF__land_use__land_use_change_and_forestry_  ?Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_ETS__or_LULUCF__land_use__land_use_change_and_forestry_  .
+_:rec tableFile:Sector_s__affected ?Sector_s__affected .
+_:rec tableFile:Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ .
+_:rec tableFile:Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ .
+_:rec tableFile:Link_to_national_report ?Link_to_national_report .
+_:rec tableFile:PAM_number ?PAM_number .
+_:rec tableFile:Objective ?Objective .
+_:rec tableFile:Entities_responsible_for_implementing_the_policy ?Entities_responsible_for_implementing_the_policy .
+_:rec tableFile:Implementation_period_start ?Implementation_period_start .
+_:rec tableFile:Is_the_policy_or_measure_related_to_a_Union_policy_ ?Is_the_policy_or_measure_related_to_a_Union_policy_ .
+_:rec tableFile:GHG_s__affected ?GHG_s__affected .
+_:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included ?Projection_scenario_in_which_the_policy_or_measure_is_included .
 }
