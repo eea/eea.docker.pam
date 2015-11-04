@@ -1,7 +1,7 @@
 {
   "name": "pam",
-  "version": "0.0.1",
-  "description": "EEA database on climate change mitigation policies and measures in Europe",
+  "version": "0.0.2",
+  "description": "EEA database on climate change mitigation policies and measures in Europe for 2015",
   "dependencies" : {
     "nconf": "*",
     "express": "*",
