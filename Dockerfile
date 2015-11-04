@@ -6,3 +6,4 @@ RUN cd /tmp && npm install && mv /tmp/node_modules /node_modules
 ADD ./app /code
 ENTRYPOINT ["/code/app.js"]
 CMD ["runserver"]
+
