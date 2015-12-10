@@ -38,10 +38,12 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_"  : {
+
+/*    "Policy_or_measure_impacting_emissions_under_the_EU_ETS__emissions_trading___the_ESD__outside_the_"  : {
         "type" : "string",
         "analyzer" : "coma"
-    },
+    },*/
+
     "Sector_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
@@ -52,11 +54,11 @@ var pamdataMappings = {
     "Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_"  : {
         "type" : "double"
     },
-    "Objective"  : {
+    "Objective_s_"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Entities_responsible_for_implementing_the_policy"  : {
+    "Entities_responsible_for_implementing_the_policy__type_"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
@@ -75,7 +77,19 @@ var pamdataMappings = {
     "Projection_scenario_in_which_the_policy_or_measure_is_included"  : {
         "type" : "string",
         "analyzer" : "coma"
+    },
+
+    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_" : {
+        "type" : "string",
+        "analyzer" : "coma"
+    },
+
+    "Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure" : {
+        "type" : "string",
+        "analyzer" : "none"
     }
+
+
 };
 
 var mappings = {
