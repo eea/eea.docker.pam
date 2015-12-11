@@ -38,8 +38,11 @@ function fixDataTitles(){
 }
 
 function removeMissingDetails(){
-    $.each($(".detail_link"), function(idx, link){
+    $.each($(".details_link"), function(idx, link){
         if (($(link).attr("href") === undefined) || ($(link).attr("href") === "")){
+            var tmp_text = $(link).text();
+            var container = $(link).parent()
+            $(container).text(tmp_text);
             $(link).remove();
         }
     });
