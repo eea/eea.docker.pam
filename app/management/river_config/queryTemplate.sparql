@@ -1,4 +1,4 @@
-PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid_cleaned_step1.csv#>
 select
 concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?ReportID
@@ -9,6 +9,7 @@ concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?Policies_or_measures_included_in_the_group
 ?Type_of_policy_instrument
 ?Status_of_implementation
+?Status_of_implementation_original
 ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_
 ?Sector_s__affected
 ?Objective_s_
@@ -17,10 +18,12 @@ concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?Entities_responsible_for_implementing_the_policy__type_
 ?Entities_responsible_for_implementing_the_policy
 ?Implementation_period_start
+?Implementation_period_start_original
 ?Is_the_policy_or_measure_related_to_a_Union_policy_
 ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure
 ?GHG_s__affected
 ?Projection_scenario_in_which_the_policy_or_measure_is_included
+?Projection_scenario_in_which_the_policy_or_measure_is_included_original
 ?Link_to_national_report
 ?Short_description
 ?Quantified_objective
@@ -68,7 +71,7 @@ concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?Reference_for_realised_costs_and_benefits
 ?Web_link_for_realised_costs_and_benefits
 ?Submission_year
-FROM <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid.csv>
+FROM <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid_cleaned_step1.csv>
 WHERE {
 _:rec tableFile:ReportID ?ReportID .
 _:rec tableFile:Country ?Country .
@@ -77,7 +80,8 @@ _:rec tableFile:Single_policy_or_measure__or_group_of_measures ?Single_policy_or
 _:rec tableFile:Number_of_policy_or_measure ?Number_of_policy_or_measure .
 _:rec tableFile:Policies_or_measures_included_in_the_group ?Policies_or_measures_included_in_the_group .
 _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument .
-_:rec tableFile:Status_of_implementation ?Status_of_implementation .
+_:rec tableFile:Status_of_implementation_clean ?Status_of_implementation .
+_:rec tableFile:Status_of_implementation ?Status_of_implementation_original .
 _:rec tableFile:Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_ ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_ .
 _:rec tableFile:Sector_s__affected ?Sector_s__affected .
 _:rec tableFile:Objective_s_ ?Objective_s_ .
@@ -85,11 +89,13 @@ _:rec tableFile:Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_ye
 _:rec tableFile:Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ .
 _:rec tableFile:Entities_responsible_for_implementing_the_policy__type_ ?Entities_responsible_for_implementing_the_policy__type_ .
 _:rec tableFile:Entities_responsible_for_implementing_the_policy ?Entities_responsible_for_implementing_the_policy .
-_:rec tableFile:Implementation_period_start ?Implementation_period_start .
+_:rec tableFile:Implementation_period_start_clean ?Implementation_period_start .
+_:rec tableFile:Implementation_period_start ?Implementation_period_start_original .
 _:rec tableFile:Is_the_policy_or_measure_related_to_a_Union_policy_ ?Is_the_policy_or_measure_related_to_a_Union_policy_ .
 _:rec tableFile:Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure .
 _:rec tableFile:GHG_s__affected ?GHG_s__affected .
-_:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included ?Projection_scenario_in_which_the_policy_or_measure_is_included .
+_:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included_clean ?Projection_scenario_in_which_the_policy_or_measure_is_included .
+_:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included ?Projection_scenario_in_which_the_policy_or_measure_is_included_original .
 _:rec tableFile:Link_to_national_report ?Link_to_national_report .
 _:rec tableFile:Short_description ?Short_description .
 _:rec tableFile:Quantified_objective ?Quantified_objective .
