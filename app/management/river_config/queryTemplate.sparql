@@ -1,7 +1,6 @@
 PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid.csv#>
-#select distinct(concat(?Country, "_", ?Name_of_policy_or_measure, "_", ?Number_of_policy_or_measure))
 select
-concat(?Country, "_", ?Name_of_policy_or_measure, "_", ?Number_of_policy_or_measure) as ?_id
+concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?ReportID
 ?Country
 ?Name_of_policy_or_measure

@@ -70,8 +70,6 @@ function reindex() {
 
 function createIndex() {
     var elastic = require('nconf').get('elastic');
-console.log(elastic);
-console.log(getOptions());
     new esAPI(getOptions())
             .indexFromQuery(config.endpoint, config.queryTemplate, null, elastic, analyzers);
 }

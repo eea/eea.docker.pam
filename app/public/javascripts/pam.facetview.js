@@ -37,10 +37,19 @@ function fixDataTitles(){
     });
 }
 
+function removeMissingDetails(){
+    $.each($(".detail_link"), function(idx, link){
+        if (($(link).attr("href") === undefined) || ($(link).attr("href") === "")){
+            $(link).remove();
+        }
+    });
+}
+
 function viewReady(){
     addHeaders("#facetview_results");
     replaceNumbers();
     fixDataTitles();
+    removeMissingDetails();
 }
 
 jQuery(document).ready(function($) {
