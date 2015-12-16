@@ -18,66 +18,65 @@ var analyzers = {
 // Proprety mappings for pamdata
 // Describe how properties get indexed into ElasticSearch
 var pamdataMappings = {
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Country" : {
+    "Country" : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#PAMID"  : {
+    "Single_policy_or_measure__or_group_of_measures"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Type_of_instrument" : {
+    "Type_of_policy_instrument"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Affected_GHG" : {
+    "Status_of_implementation"  : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_" : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Targeted_sectors" : {
+    "Sector_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Projection_scenario_in_which_the_PAM_is_included" : {
+    "Objective_s_"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Link_to_EU_Emissions_Trading_Scheme_ETS" : {
+    "Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_"  : {
+        "type" : "double"
+    },
+    "Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_"  : {
+        "type" : "double"
+    },
+    "Entities_responsible_for_implementing_the_policy__type_"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Type_of_implementing_entities" : {
+    "Implementation_period_start"  : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "Is_the_policy_or_measure_related_to_a_Union_policy_"  : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure" : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "GHG_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Related_EU_policies" : {
+    "Projection_scenario_in_which_the_policy_or_measure_is_included"  : {
         "type" : "string",
-        "analyzer" : "semicolon"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_EU_ETS_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_total_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_total_kt_CO2_equivalent_per_year": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_EU_ETS_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2015_non_ETS_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2025_total_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2030_total_kt_CO2": {
-        "type": "double"
-    },
-    "http://semantic.eea.europa.eu/project/pam/pam2014.csv#2020_non_ETS_kt_CO2": {
-        "type": "double"
+        "analyzer" : "none"
     }
+
 };
 
 var mappings = {

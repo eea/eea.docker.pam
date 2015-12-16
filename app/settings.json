@@ -3,9 +3,9 @@
         "port": 3000
     },
     "elastic": {
-        "index": "pamdata",
+        "index": "pamdata_2015",
         "type": "resources",
-        "field_base":"http://semantic.eea.europa.eu/project/pam/pam2014.csv#"
+        "field_base":""
     },
     "external_templates": {
         "local_path": "/external_templates",

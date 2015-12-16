@@ -37,10 +37,22 @@ function fixDataTitles(){
     });
 }
 
+function removeMissingDetails(){
+    $.each($(".details_link"), function(idx, link){
+        if (($(link).attr("href") === undefined) || ($(link).attr("href") === "")){
+            var tmp_text = $(link).text();
+            var container = $(link).parent()
+            $(container).text(tmp_text);
+            $(link).remove();
+        }
+    });
+}
+
 function viewReady(){
     addHeaders("#facetview_results");
     replaceNumbers();
     fixDataTitles();
+    removeMissingDetails();
 }
 
 jQuery(document).ready(function($) {
