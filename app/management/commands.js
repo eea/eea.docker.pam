@@ -63,8 +63,6 @@ function reindex() {
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
         .PUT(elastic.index, analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
-        .PUT('_river/new_pam/_meta', syncReq, callback('Adding river back'))
         .execute();
 }
 

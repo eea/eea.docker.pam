@@ -1,4 +1,4 @@
-PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid_cleaned_step1.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/project/pam/pam2015.csv#>
 select
 concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?ReportID
@@ -10,7 +10,7 @@ concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?Type_of_policy_instrument
 ?Status_of_implementation
 ?Status_of_implementation_original
-?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_
+?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_
 ?Sector_s__affected
 ?Objective_s_
 ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_
@@ -71,7 +71,7 @@ concat(?Country, "_", ?Number_of_policy_or_measure) as ?_id
 ?Reference_for_realised_costs_and_benefits
 ?Web_link_for_realised_costs_and_benefits
 ?Submission_year
-FROM <http://semantic.eea.europa.eu/home/szabozo0/PAM_2015_v5_merged_with_reportid_cleaned_step1.csv>
+FROM <http://semantic.eea.europa.eu/project/pam/pam2015.csv>
 WHERE {
 _:rec tableFile:ReportID ?ReportID .
 _:rec tableFile:Country ?Country .
@@ -82,7 +82,7 @@ _:rec tableFile:Policies_or_measures_included_in_the_group ?Policies_or_measures
 _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument .
 _:rec tableFile:Status_of_implementation_clean ?Status_of_implementation .
 _:rec tableFile:Status_of_implementation ?Status_of_implementation_original .
-_:rec tableFile:Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_ ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_ .
+_:rec tableFile:Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_ ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_ .
 _:rec tableFile:Sector_s__affected ?Sector_s__affected .
 _:rec tableFile:Objective_s_ ?Objective_s_ .
 _:rec tableFile:Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ .
