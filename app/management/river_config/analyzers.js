@@ -34,7 +34,7 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "none"
     },
-    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__“ESD”__or_LULUCF_" : {
+    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_" : {
         "type" : "string",
         "analyzer" : "coma"
     },

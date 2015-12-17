@@ -43,12 +43,6 @@ var callback = function(text) {
     };
 }
 
-function removeRiver() {
-    new esAPI(getOptions())
-        .DELETE('_river/new_pam', callback('Deleting river! (if it exists)'))
-        .execute();
-}
-
 function removeData() {
     var elastic = require('nconf').get('elastic');
     new esAPI(getOptions())
@@ -57,13 +51,7 @@ function removeData() {
 }
 
 function reindex() {
-    var elastic = require('nconf').get('elastic');
-
-    new esAPI(getOptions())
-        .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
-        .PUT(elastic.index, analyzers,
-             callback('Setting up new index and analyzers'))
-        .execute();
+    createIndex();
 }
 
 function createIndex() {
@@ -81,14 +69,12 @@ function showHelp() {
     console.log(' reindex: Remove data and recreate index');
     console.log('');
     console.log(' remove_data: Remove the ES index of this application');
-    console.log(' remove_river: Remove the running river indexer if any');
     console.log('');
     console.log(' help: Show this menu');
     console.log('');
 }
 
 module.exports = { 
-    'remove_river': removeRiver,
     'remove_data': removeData,
     'reindex': reindex,
     'create_index': createIndex,
