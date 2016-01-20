@@ -11,6 +11,6 @@ RUN apt-get update -q && \
     pip3 install chaperone && apt-get clean && rm -rf /tmp/* /var/tmp/*
 COPY chaperone.conf /etc/chaperone.d/chaperone.conf
 
-RUN useradd -m 500 && usermod -u 500 500
-USER 500
+RUN useradd -m node && usermod -u 600 node
+USER mode
 ENTRYPOINT ["/usr/local/bin/chaperone"]
