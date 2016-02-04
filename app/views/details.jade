@@ -12,9 +12,6 @@ block content
         +detail_tables (sections, data, "", true)
 
     else
-        div(class = "portalMessage errorMessage")
-            span= "PAM with ID: "
-            b= pamid 
-            span= " does not exist"
+        +app_error("PAM with ID: ", pamid)
 
     +visualization_info ("http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1","Climate change mitigation policies and measures")
