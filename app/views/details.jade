@@ -6,29 +6,12 @@ block extrajavascripts
 
 block content
     if (data)
-        div(id="portal-breadcrumbs")
-            span(id="breadcrumbs-you-are-here") You are here: 
-            span(id="breadcrumbs-home")
-                a(href="http://www.eea.europa.eu/") Home
-                span(class="breadcrumbSeparator")  / 
-            span(id="breadcrumbs-1")
-                a(href="./") Climate change policies and measures in Europe
-                span(class="breadcrumbSeparator")  / 
-            span(id="breadcrumbs-2")
-                span(class="breadcrumbs-current")=  data.Name.value
-
+        +portal_breadcrumbs ("Climate change policies and measures in Europe", data.Name.value)
         h1= data.Name.value
 
         +detail_tables (sections, data, "", true)
 
     else
-        div(class = "portalMessage errorMessage")
-            span= "PAM with ID: "
-            b= pamid 
-            span= " does not exist"
+        +app_error("PAM with ID: ", pamid)
 
-    div(class="visualization-info")
-        h3 Data sources
-        a(href="http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1") Climate change mitigation policies and measures
-        span  provided by 
-        a(href="http://www.eea.europa.eu") European Environment Agency (EEA)
+    +visualization_info ("http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1","Climate change mitigation policies and measures")
