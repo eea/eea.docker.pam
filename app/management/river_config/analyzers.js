@@ -22,6 +22,9 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
+    "ID_of_policy_or_measure": {
+        "type" : "integer"
+    },
     "Single_policy_or_measure__or_group_of_measures"  : {
         "type" : "string",
         "analyzer" : "none"
@@ -30,11 +33,11 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Status_of_implementation"  : {
+    "Status_of_implementation_clean"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_" : {
+    "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_" : {
         "type" : "string",
         "analyzer" : "coma"
     },
@@ -42,7 +45,7 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Objective_s_"  : {
+    "Objective_s__lookup_only4facets"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
@@ -52,31 +55,38 @@ var pamdataMappings = {
     "Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_"  : {
         "type" : "double"
     },
-    "Entities_responsible_for_implementing_the_policy__type_"  : {
+    "Objective_s__lookup_only4facets" : {
+        "type" : "string",
+        "analyzer" : "semicolon"
+    },
+    "Entities_lookup_only4facets"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Implementation_period_start"  : {
+    "Implementation_period_start_clean"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "Is_the_policy_or_measure_related_to_a_Union_policy_"  : {
+    "Is_the_policy_or_measure_related_to_a_Union_policy__clean"  : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure" : {
+    "Union_policy_lookup_only4facets_clean" : {
         "type" : "string",
-        "analyzer" : "none"
+        "analyzer" : "semicolon"
     },
     "GHG_s__affected"  : {
         "type" : "string",
         "analyzer" : "coma"
     },
-    "Projection_scenario_in_which_the_policy_or_measure_is_included"  : {
+    "Projection_scenario_in_which_the_policy_or_measure_is_included_clean"  : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "Description__estimate__methodology" :{
         "type" : "string",
         "analyzer" : "none"
     }
-
 };
 
 var mappings = {

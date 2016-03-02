@@ -56,8 +56,12 @@ function viewReady(){
 }
 
 jQuery(document).ready(function($) {
+    var default_sort = [{}, {}];
+    default_sort[0][field_base + 'Country'] = {"order": 'asc'};
+    default_sort[1][field_base + 'ID_of_policy_or_measure'] = {"order": 'asc'};
     eea_facetview('.facet-view-simple', 
         {
+            default_sort: default_sort,
             search_url: './api',
             search_index: 'elasticsearch',
             datatype: 'json',
@@ -73,7 +77,7 @@ jQuery(document).ready(function($) {
             },
             paging: {
                 from: 0,
-                size: 10
+                size: 20
             }
         });
     replaceNumbers();

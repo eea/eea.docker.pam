@@ -105,14 +105,14 @@
             }
         },
         {
-            "name": "Number_of_policy_or_measure",
+            "name": "ID_of_policy_or_measure",
             "listing": {
-                "visible": true,
-                "title": "Number of policy or measure",
+                "visible": false,
+                "title": "ID of policy or measure",
                 "pos": 4
             },
             "csv_tsv": {
-                "title": "Number of policy or measure",
+                "title": "ID of policy or measure",
                 "visible": true,
                 "pos": 4
             },
@@ -159,7 +159,7 @@
             }
         },
         {
-            "name": "Status_of_implementation",
+            "name": "Status_of_implementation_clean",
             "listing": {
                 "visible": false
             },
@@ -177,7 +177,7 @@
             }
         },
         {
-            "name": "Status_of_implementation_original",
+            "name": "Status_of_implementation",
             "listing": {
                 "visible": true,
                 "title": "Status of implementation",
@@ -195,7 +195,7 @@
         },
 
         {
-            "name": "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS__ESD__or_LULUCF_",
+            "name": "Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_",
             "listing": {
                 "visible": true,
                 "title": "Impact of policy or measure  (EU ETS, outside the ETS (“ESD”) or LULUCF)",
@@ -263,6 +263,24 @@
             }
         },
         {
+            "name": "Objective_s__lookup_only4facets",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Objective(s)",
+                "pos": 6,
+                "type": "facet",
+                "size": 1500,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
             "name": "Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_",
             "listing": {
                 "visible": true,
@@ -307,7 +325,7 @@
             }
         },
         {
-            "name": "Entities_responsible_for_implementing_the_policy__type_",
+            "name": "Entities_lookup_only4facets",
             "listing": {
                 "visible": false
             },
@@ -344,7 +362,7 @@
             }
         },
         {
-            "name": "Implementation_period_start",
+            "name": "Implementation_period_start_clean",
             "listing": {
                 "visible": false
             },
@@ -362,7 +380,7 @@
             }
         },
         {
-            "name": "Implementation_period_start_original",
+            "name": "Implementation_period_start",
             "listing": {
                 "visible": true,
                 "title": "Implementation period start",
@@ -390,6 +408,28 @@
                 "pos": 16
             },
             "facet": {
+                "visible": false,
+                "title": "Is the policy or measure related to a Union policy?",
+                "pos": 11,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Is_the_policy_or_measure_related_to_a_Union_policy__clean",
+            "listing": {
+                "visible": false,
+                "title": "Is the policy or measure related to a Union policy?",
+                "pos": 15
+            },
+            "csv_tsv": {
+                "title": "Is the policy or measure related to a Union policy?",
+                "visible": false,
+                "pos": 16
+            },
+            "facet": {
                 "visible": true,
                 "title": "Is the policy or measure related to a Union policy?",
                 "pos": 11,
@@ -410,6 +450,29 @@
             "csv_tsv": {
                 "title": "Union policy which resulted in the implementation of the policy or measure",
                 "visible": true,
+                "pos": 17
+            },
+            "facet": {
+                "visible": false,
+                "title": "Union policy which resulted in the implementation of the policy or measure",
+                "pos": 12,
+                "type": "facet",
+                "size": 1500,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "Union_policy_lookup_only4facets_clean",
+            "listing": {
+                "visible": false,
+                "title": "Union policy which resulted in the implementation of the policy or measure",
+                "pos": 16,
+                "width": "200px"
+            },
+            "csv_tsv": {
+                "title": "Union policy which resulted in the implementation of the policy or measure",
+                "visible": false,
                 "pos": 17
             },
             "facet": {
@@ -445,7 +508,7 @@
             }
         },
         {
-            "name": "Projection_scenario_in_which_the_policy_or_measure_is_included",
+            "name": "Projection_scenario_in_which_the_policy_or_measure_is_included_clean",
             "listing": {
                 "visible": false
             },
@@ -463,7 +526,7 @@
             }
         },
         {
-            "name": "Projection_scenario_in_which_the_policy_or_measure_is_included_original",
+            "name": "Projection_scenario_in_which_the_policy_or_measure_is_included",
             "listing": {
                 "title": "Projection scenario in which the policy or measure is included",
                 "visible": true,
@@ -496,15 +559,15 @@
             }
         },
         {
-            "name": "Short_description",
+            "name": "Description",
             "listing": {
                 "visible": true,
-                "title": "Short description",
+                "title": "Description",
                 "pos": 20,
                 "width": "200px"
             },
             "csv_tsv": {
-                "title": "Short description",
+                "title": "Description",
                 "visible": true,
                 "pos": 21
             },
@@ -1009,7 +1072,7 @@
             }
         },
         {
-            "name": "Description_of_projected_cost_estimates__basis_for_cost_estimate__what_type_of_costs_are_included_in_the_estimate__methodology_",
+            "name": "Description__estimate__methodology",
             "listing": {
                 "visible": true,
                 "title": "Description of projected cost estimates (basis for cost estimate, what type of costs are included in the estimate, methodology)",
