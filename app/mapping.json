@@ -123,7 +123,7 @@
         {
             "name": "Policies_or_measures_included_in_the_group",
             "listing": {
-                "visible": true,
+                "visible": false,
                 "title": "Policies or measures included in the group",
                 "pos": 5
             },
@@ -1292,7 +1292,13 @@
                 "pos": 66
             },
             "facet": {
-                "visible": false
+                "visible": true,
+                "title": "Submission year",
+                "pos": 15,
+                "type": "facet",
+                "size": 50,
+                "order": "term",
+                "facet_display_options": ["sort", "checkbox"]
             }
         }
     ]

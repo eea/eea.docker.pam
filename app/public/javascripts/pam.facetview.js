@@ -4,6 +4,23 @@ function fixHeights(){
         $(elem).html("");
         $(elem).append(newelem);
     })
+
+    $.each($(".eea-pam-element"), function(idx, elem){
+        while (true){
+            var visibleWidth = $(elem).width();
+            var visibleHeight = $(elem).height();
+            var scrollWidth = $(elem)[0].scrollWdith;
+            var scrollHeight = $(elem)[0].scrollHeight;
+
+            if ((scrollHeight > visibleHeight) || (scrollWidth > visibleWidth)){
+                $(elem).text($(elem).text().substr(0, $(elem).text().length - 4) + "...")
+                continue;
+            }
+            else {
+                break;
+            }
+        }
+    });
 }
 
 function replaceNumbers(){
@@ -86,7 +103,7 @@ jQuery(document).ready(function($) {
             },
             paging: {
                 from: 0,
-                size: 20
+                size: 10
             }
         });
     replaceNumbers();
