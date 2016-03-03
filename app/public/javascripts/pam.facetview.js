@@ -1,3 +1,11 @@
+function fixHeights(){
+    $.each($("#facetview_results tbody tr td"), function (idx, elem){
+        var newelem = $("<div class='eea-pam-element' title='"+$(elem).text()+"'>").append($(elem).html());
+        $(elem).html("");
+        $(elem).append(newelem);
+    })
+}
+
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
     var chemsMapping = {'CH4':'CH<sub>4</sub>',
@@ -53,6 +61,7 @@ function viewReady(){
     replaceNumbers();
     fixDataTitles();
     removeMissingDetails();
+    fixHeights();
 }
 
 jQuery(document).ready(function($) {

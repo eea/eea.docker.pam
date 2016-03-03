@@ -13,3 +13,7 @@ a.details_link {
 a.details_link:visited {
     color: #346f83;
 }
+.eea-pam-element{
+  max-height:50px;
+  overflow:hidden;
+}
