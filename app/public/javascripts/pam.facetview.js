@@ -4,7 +4,7 @@ function fixHeights(){
         $(elem).html("");
         $(elem).append(newelem);
     })
-
+    return;
     $.each($(".eea-pam-element"), function(idx, elem){
         while (true){
             var visibleWidth = $(elem).width();
