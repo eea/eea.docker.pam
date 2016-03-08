@@ -22,25 +22,16 @@ for row in rows:
     ipr_clean = "No information"
     upl_clean = "No information"
 
-    try:
-        soi.index('See')
-    except:
-        if len(soi) > 0:
-          soi_clean = soi[:1].upper() + soi[1:]
+    if len(soi) > 0:
+      soi_clean = soi[:1].upper() + soi[1:]
 
-    try:
-        ips.index('See')
-    except:
-        if len(ips) > 0:
-          ips_clean = ips
+    if len(ips) > 0:
+      ips_clean = ips
 
-    try:
-        psi.index('See')
-    except:
-        if len(psi) > 0:
-          psi_clean = psi
-          if psi_clean == 'NIP':
-              psi_clean = 'Not included in a projection scenario'
+    if len(psi) > 0:
+      psi_clean = psi
+      if psi_clean == 'NIP':
+          psi_clean = 'Not included in a projection scenario'
 
     if len(ipr) > 0:
         ipr_clean = ipr

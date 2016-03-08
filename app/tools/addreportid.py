@@ -4,7 +4,7 @@ base_URL = 'http://cdr.eionet.europa.eu/Converters/run_conversion?file='
 conversion_ID = '524'
 source = 'remote'
 
-csvfile = open('PAM_2015_v7_merged.csv', 'r')
+csvfile = open('PAM_2015_v8_merged.csv', 'r')
 reader = csv.DictReader( csvfile)
 
 rows = [row for row in reader]
@@ -27,7 +27,7 @@ fieldnames = reader.fieldnames
 fieldnames.append('ReportID')
 
 if 1:
-    csvfile_out = open('PAM_2015_v7_merged_with_reportid.csv', 'wb')
+    csvfile_out = open('PAM_2015_v8_merged_with_reportid.csv', 'wb')
     writer = csv.DictWriter(csvfile_out, fieldnames = fieldnames)
     writer.writeheader()
     writer.writerows(rows)

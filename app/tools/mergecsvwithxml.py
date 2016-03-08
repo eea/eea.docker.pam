@@ -1,7 +1,7 @@
 import csv
 import xml.etree.ElementTree as ET
 
-csvfile = open('PAM_viewer_Flat_v7.csv', 'r')
+csvfile = open('PAM_viewer_Flat_v8.csv', 'r')
 reader = csv.DictReader( csvfile)
 
 tree = ET.parse('1-PAMs-Viewer-Flat-file.xml')
@@ -80,7 +80,7 @@ for row in rows:
             if len(description_row['fromxml']) != 0:
               row['Description'] = description_row['fromxml'][0]
     rowcount += 1
-csvfile_out = open('PAM_2015_v7_merged.csv', 'wb')
+csvfile_out = open('PAM_2015_v8_merged.csv', 'wb')
 writer = csv.DictWriter(csvfile_out, fieldnames=reader.fieldnames)
 writer.writeheader()
 writer.writerows(rows)

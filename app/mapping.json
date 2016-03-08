@@ -1282,7 +1282,7 @@
         {
             "name": "Submission_year",
             "listing": {
-                "visible": true,
+                "visible":false,
                 "title": "Submission year",
                 "pos": 65
             },
@@ -1292,7 +1292,7 @@
                 "pos": 66
             },
             "facet": {
-                "visible": true,
+                "visible": false,
                 "title": "Submission year",
                 "pos": 15,
                 "type": "facet",
