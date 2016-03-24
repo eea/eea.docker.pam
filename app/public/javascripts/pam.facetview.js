@@ -6,6 +6,10 @@ function fixHeights(){
     })
     return;
     $.each($(".eea-pam-element"), function(idx, elem){
+        var full_text = $(elem).text();
+        var min_length = 0;
+        var max_length = $(elem).text().length;
+        var middle = max_length;
         while (true){
             var visibleWidth = $(elem).width();
             var visibleHeight = $(elem).height();
@@ -13,11 +17,20 @@ function fixHeights(){
             var scrollHeight = $(elem)[0].scrollHeight;
 
             if ((scrollHeight > visibleHeight) || (scrollWidth > visibleWidth)){
-                $(elem).text($(elem).text().substr(0, $(elem).text().length - 4) + "...")
-                continue;
+                max_length = middle;
+                middle = Math.floor((max_length + min_length) / 2);
+                $(elem).text(full_text.substr(0, middle) + "...");
             }
             else {
-                break;
+                min_length = middle;
+                if ($(elem).text().length === max_length){
+                    break;
+                }
+                if (max_length - min_length < 3){
+                    break;
+                }
+                middle = Math.floor((max_length + middle) / 2);
+                $(elem).text(full_text.substr(0, middle) + "...");
             }
         }
     });
