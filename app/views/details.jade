@@ -1,17 +1,25 @@
 block title
-    title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
+    title!= head_title
 
 block extrajavascripts
-    script(type='text/javascript', src='javascripts/pam.details.js')
+    each script in js_resources.index_page
+        script(type='text/javascript', src=script)
+
+block extrastyles
+    each style in css_resources.index_page
+        link(rel='stylesheet', href=style)
 
 block content
     if (data)
-        +portal_breadcrumbs ("Climate change policies and measures in Europe", data.Name.value)
+        if (enableBreadcrumbs)
+            +portal_breadcrumbs (breadcrumbs, data.Name.value)
+
         h1= data.Name.value
 
         +detail_tables (sections, data, "", true)
-
     else
         +app_error("PAM with ID: ", pamid)
 
-    +visualization_info ("http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1","Climate change mitigation policies and measures")
+    +visualization_info (dataprovencance_info_url,dataprovencance_info_text)
+
+    div!= further_info

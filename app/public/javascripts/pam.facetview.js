@@ -77,11 +77,14 @@ function fixDataTitles(){
 
 function removeMissingDetails(){
     $.each($(".details_link"), function(idx, link){
-        if (($(link).attr("href") === undefined) || ($(link).attr("href") === "")){
+        href = $(link).attr("href");
+        if ((href === undefined) || (href === "")){
             var tmp_text = $(link).text();
             var container = $(link).parent()
             $(container).text(tmp_text);
             $(link).remove();
+        } else {
+            $(link).attr("href", href.replace(/ /g, '_'));
         }
     });
 }
@@ -98,7 +101,7 @@ jQuery(document).ready(function($) {
     var default_sort = [{}, {}];
     default_sort[0][field_base + 'Country'] = {"order": 'asc'};
     default_sort[1][field_base + 'ID_of_policy_or_measure'] = {"order": 'asc'};
-    eea_facetview('.facet-view-simple', 
+    eea_facetview('.facet-view-simple',
         {
             default_sort: default_sort,
             search_url: './api',

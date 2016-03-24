@@ -1,24 +1,24 @@
 block title
-    title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
+    title!= head_title
 
 block extrajavascripts
-    script(type='text/javascript', src='javascripts/pam.facetview.js')
+    each script in js_resources.index_page
+        script(type='text/javascript', src=script)
 
 block extrastyles
-    link(rel='stylesheet', href='css/no-more-tables.css')
-    link(rel="stylesheet", href="css/pam.facetview.css")
+    each style in css_resources.index_page
+        link(rel='stylesheet', href=style)
 
 block content
     div(id="slider")
 
-    +portal_breadcrumbs ("EEA database on climate change mitigation policies and measures in Europe")
+    if (enableBreadcrumbs)
+        +portal_breadcrumbs (breadcrumbs)
 
-    h1 EEA database on climate change mitigation policies and measures in Europe
-    p This database contains a number of policies and measures (PAM) implemented or planned by European countries to reduce greenhouse gas emissions. Most of these PAMs have been reported to the European Commission, the United Framework Convention on Climate Change (UNFCCC) or the EEA. The search engine gives access to detailed information for each of these PAMs including, in some cases, the expected reductions in greenhouse gas emissions resulting from the implementation of these PAMs, as estimated by countries.
+    h1!= site_title
+    p!= site_description
     .facet-view-simple
 
-    div(class="visualization-info")
-        h3 Data sources
-        a(href="http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1") Climate change mitigation policies and measures
-        span  provided by 
-        a(href="http://www.eea.europa.eu") European Environment Agency (EEA)
+    +visualization_info (dataprovencance_info_url,dataprovencance_info_text)
+
+    div!= further_info

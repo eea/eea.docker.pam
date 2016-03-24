@@ -6,9 +6,11 @@
     "nconf": "*",
     "express": "*",
     "jade": "*",
-    "eea-searchserver": "0.0.22",
+    "eea-searchserver": "0.0.23-dev",
     "morgan": "*",
-    "request": "*"
+    "request": "*",
+    "node-crontab": "*",
+    "underscore": "*"
   },
   "repository": {
     "type": "git",
