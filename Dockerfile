@@ -4,6 +4,7 @@ ENV NODE_ENV 'production'
 ADD ./README.md /tmp/README.md
 ADD ./app/package.json /tmp/package.json
 RUN cd /tmp && npm install && mv /tmp/node_modules /node_modules
-ADD ./app /code
+ADD . /sources_from_git
+RUN ln -s /sources_from_git/app /code
 VOLUME /code/app/config
 USER node
