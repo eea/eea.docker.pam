@@ -10,7 +10,8 @@
     "morgan": "*",
     "request": "*",
     "node-crontab": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "nodemon": "*"
   },
   "repository": {
     "type": "git",
