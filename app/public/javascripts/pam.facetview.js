@@ -83,7 +83,7 @@ jQuery(document).ready(function($) {
                 size: 10
             },
             display_type_options: ['tabular'],
-            display_type: 'card'
+            display_type: 'tabular'
         });
     replaceNumbers();
 });
