@@ -1,33 +1,49 @@
+#!/usr/bin/env python
+import sys
 import csv
 import xml.etree.ElementTree as ET
-base_URL = 'http://cdr.eionet.europa.eu/Converters/run_conversion?file='
-conversion_ID = '524'
-source = 'remote'
-
-csvfile = open('PAM_2015_v8_merged.csv', 'r')
-reader = csv.DictReader( csvfile)
-
-rows = [row for row in reader]
 
 
-rows2 = []
+def main(csv_input, csv_output, base_url, conversion_id, source):
+    reader = csv.DictReader(csv_input)
+
+    rows = [row for row in reader]
 
 
-for row in rows:
+    rows2 = []
 
-#    import pdb; pdb.set_trace()
-    link = row['Link to national report']
-    if link:
-        pam_ID = row['ID of policy or measure']
-        xml_PATH = link.split('http://cdr.eionet.europa.eu')[1].split("#")[0]
-        reportID = "%s%s&conv=%s&source=%s#pam%s" %(base_URL, xml_PATH, conversion_ID, source, pam_ID)
-        row['ReportID'] = reportID
 
-fieldnames = reader.fieldnames
-fieldnames.append('ReportID')
+    for row in rows:
+        link = row.get('Link to national report', '')
+        if link:
+            pam_ID = row['ID of policy or measure']
+            xml_PATH = link.split('http://cdr.eionet.europa.eu')[1].split("#")[0]
+            reportID = "%s%s&conv=%s&source=%s#pam%s" %(base_url, xml_PATH, conversion_id, source, pam_ID)
+            row['ReportID'] = reportID
 
-if 1:
-    csvfile_out = open('PAM_2015_v8_merged_with_reportid.csv', 'wb')
-    writer = csv.DictWriter(csvfile_out, fieldnames = fieldnames)
-    writer.writeheader()
-    writer.writerows(rows)
+    fieldnames = reader.fieldnames
+    fieldnames.append('ReportID')
+
+    if 1:
+        writer = csv.DictWriter(csv_output, fieldnames=fieldnames)
+        writer.writerows(rows)
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='Add report ID column')
+    parser.add_argument('-i', '--input-csv', help='CSV input file', type=argparse.FileType('rU'))
+    parser.add_argument('-o', '--output-csv', help='CSV output file', type=argparse.FileType('wb'),
+                        default=sys.stdout)
+    parser.add_argument('-u', '--base-url', help='',
+                        default='http://cdr.eionet.europa.eu/Converters/run_conversion?file=')
+    parser.add_argument('-c', '--conversion-id', help='', default='524')
+    parser.add_argument('-s', '--source', help='', default='remote')
+    args = parser.parse_args(sys.argv[1:])
+    main(
+        csv_input=args.input_csv,
+        csv_output=args.output_csv,
+        base_url=args.base_url,     
+        conversion_id=args.conversion_id,
+        source=args.source,
+    )
