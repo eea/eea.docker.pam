@@ -70,8 +70,9 @@ def main(csv_input, csv_output):
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description='Clean')
-    parser.add_argument('-i', '--input-csv', help='CSV input file', type=argparse.FileType('rU'))
+    parser = argparse.ArgumentParser(description='Clean columns')
+    parser.add_argument('-i', '--input-csv', help='CSV input file', type=argparse.FileType('rU'),
+                        default=sys.stdin)
     parser.add_argument('-o', '--output-csv', help='CSV output file', type=argparse.FileType('wb'),
                         default=sys.stdout)
     args = parser.parse_args(sys.argv[1:])

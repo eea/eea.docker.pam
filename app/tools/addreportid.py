@@ -32,7 +32,8 @@ def main(csv_input, csv_output, base_url, conversion_id, source):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Add report ID column')
-    parser.add_argument('-i', '--input-csv', help='CSV input file', type=argparse.FileType('rU'))
+    parser.add_argument('-i', '--input-csv', help='CSV input file', type=argparse.FileType('rU'),
+                        default=sys.stdin)
     parser.add_argument('-o', '--output-csv', help='CSV output file', type=argparse.FileType('wb'),
                         default=sys.stdout)
     parser.add_argument('-u', '--base-url', help='',

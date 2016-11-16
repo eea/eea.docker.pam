@@ -5,3 +5,9 @@ Characters to be replaced are: , - ( ) / “ ” ?
 2. Execute the mergecsvwithxml.py python script to update the "Name of policy or measure" column with values from the xml file (in the xls file only the first 255 characters are appearing)
 3. Execute the addreportid.py script, to build the reportid column based on the "Link to national report" column
 4. Execute the simplecleancolumns.py script for normalizing some values, and to exclude some specific values from facets.
+
+Scripts are usable with stdin/stderr:
+
+```
+cat /tmp/PaMs-Viewer-Flat-file-final_v2.1.csv | ./addreportid.py  | ./simplecleancolumns_v2.py
+```
