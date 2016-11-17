@@ -19,14 +19,17 @@ def main(csv_input, csv_output, base_url, conversion_id, source):
             pam_ID = row['ID of policy or measure']
             xml_PATH = link.split('http://cdr.eionet.europa.eu')[1].split("#")[0]
             reportID = "%s%s&conv=%s&source=%s#pam%s" %(base_url, xml_PATH, conversion_id, source, pam_ID)
-            row['ReportID'] = reportID
+            row['Report ID'] = reportID
 
     fieldnames = reader.fieldnames
-    fieldnames.append('ReportID')
+    if 'Report ID' not in fieldnames:
+        fieldnames.append('Report ID')
 
     if 1:
         writer = csv.DictWriter(csv_output, fieldnames=fieldnames)
-        writer.writerows(rows)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
 
 
 if __name__ == '__main__':
