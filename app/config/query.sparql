@@ -1,8 +1,8 @@
-PREFIX tableFile: </tmp/pam-final.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v2.csv#>
 SELECT 
 concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Country
-?"Report ID"
+?"Report_ID"
 ?Name_of_policy_or_measure
 ?Single_policy_or_measure__or_group_of_measures
 ?ID_of_policy_or_measure
@@ -11,21 +11,17 @@ concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Status_of_implementation
 ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_
 ?Sector_s__affected
-# ?Objective_s__lookup_only4facets
 ?Objective_s_
 ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_
 ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_
-# ?Entities_lookup_only4facets
 ?Entities_responsible_for_implementing_the_policy__type_
 ?Entities_responsible_for_implementing_the_policy
 ?Implementation_period_start
 ?Is_the_policy_or_measure_related_to_a_Union_policy_
-# ?Union_policy_lookup_only4facets
 ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure
 ?GHG_s__affected
 ?Projection_scenario_in_which_the_policy_or_measure_is_included
 ?Link_to_national_report
-# ?Submission_year
 ?Description
 ?Quantified_objective
 ?Implementation_period_finish
@@ -78,7 +74,7 @@ concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Union_policy_lookup_only4facets_clean
 
 
-FROM </tmp/pam-final.csv>
+FROM <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v2.csv>
 WHERE {
 _:rec tableFile:Country ?Country .
 _:rec tableFile:ID_of_policy_or_measure ?ID_of_policy_or_measure .
@@ -89,20 +85,16 @@ _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument .
 _:rec tableFile:Status_of_implementation ?Status_of_implementation .
 _:rec tableFile:Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_ ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_ .
 _:rec tableFile:Sector_s__affected ?Sector_s__affected .
-# _:rec tableFile:Objective_s__lookup_only4facets ?Objective_s__lookup_only4facets .
 _:rec tableFile:Objective_s_ ?Objective_s_ .
 _:rec tableFile:Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ .
 _:rec tableFile:Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ .
-# _:rec tableFile:Entities_lookup_only4facets ?Entities_lookup_only4facets .
 _:rec tableFile:Entities_responsible_for_implementing_the_policy ?Entities_responsible_for_implementing_the_policy .
 _:rec tableFile:Implementation_period_start ?Implementation_period_start .
 _:rec tableFile:Is_the_policy_or_measure_related_to_a_Union_policy_ ?Is_the_policy_or_measure_related_to_a_Union_policy_ .
-# _:rec tableFile:Union_policy_lookup_only4facets ?Union_policy_lookup_only4facets .
 _:rec tableFile:Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure .
 _:rec tableFile:GHG_s__affected ?GHG_s__affected .
 _:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included ?Projection_scenario_in_which_the_policy_or_measure_is_included .
 _:rec tableFile:Link_to_national_report ?Link_to_national_report .
-# _:rec tableFile:Submission_year ?Submission_year .
 _:rec tableFile:Description ?Description .
 _:rec tableFile:Quantified_objective ?Quantified_objective .
 _:rec tableFile:Implementation_period_finish ?Implementation_period_finish .
