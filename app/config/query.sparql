@@ -1,23 +1,24 @@
-PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v2.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v4.csv#>
 SELECT 
 concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Country
-?"Report_ID"
+?ID_of_policy_or_measure
 ?Name_of_policy_or_measure
 ?Single_policy_or_measure__or_group_of_measures
-?ID_of_policy_or_measure
 ?Policies_or_measures_included_in_the_group
 ?Type_of_policy_instrument
 ?Status_of_implementation
 ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_
 ?Sector_s__affected
+?Objective_s__lookup_only4facets
 ?Objective_s_
 ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_
 ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_
-?Entities_responsible_for_implementing_the_policy__type_
+?Entities_lookup_only4facets
 ?Entities_responsible_for_implementing_the_policy
 ?Implementation_period_start
 ?Is_the_policy_or_measure_related_to_a_Union_policy_
+?Union_policy_lookup_only4facets
 ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure
 ?GHG_s__affected
 ?Projection_scenario_in_which_the_policy_or_measure_is_included
@@ -67,14 +68,17 @@ concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Description_of_realised_cost_estimates
 ?Reference_for_realised_costs_and_benefits
 ?Web_link_for_realised_costs_and_benefits
+?ReportID
 ?Status_of_implementation_clean
 ?Implementation_period_start_clean
 ?Projection_scenario_in_which_the_policy_or_measure_is_included_clean
 ?Is_the_policy_or_measure_related_to_a_Union_policy__clean
 ?Union_policy_lookup_only4facets_clean
+?Projected_net_cost_per_year__EUR_
+?Realised_net_cost_per_year__EUR_
 
 
-FROM <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v2.csv>
+FROM <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v4.csv>
 WHERE {
 _:rec tableFile:Country ?Country .
 _:rec tableFile:ID_of_policy_or_measure ?ID_of_policy_or_measure .
@@ -85,12 +89,15 @@ _:rec tableFile:Type_of_policy_instrument ?Type_of_policy_instrument .
 _:rec tableFile:Status_of_implementation ?Status_of_implementation .
 _:rec tableFile:Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_ ?Impact_of_policy_or_measure___EU_ETS__outside_the_ETS___ESD___or_LULUCF_ .
 _:rec tableFile:Sector_s__affected ?Sector_s__affected .
+_:rec tableFile:Objective_s__lookup_only4facets ?Objective_s__lookup_only4facets .
 _:rec tableFile:Objective_s_ ?Objective_s_ .
 _:rec tableFile:Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2020__kt_CO2_equivalent_per_year_ .
 _:rec tableFile:Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ ?Total_GHG_emissions_reductions_in_2030__kt_CO2_equivalent_per_year_ .
+_:rec tableFile:Entities_lookup_only4facets ?Entities_lookup_only4facets .
 _:rec tableFile:Entities_responsible_for_implementing_the_policy ?Entities_responsible_for_implementing_the_policy .
 _:rec tableFile:Implementation_period_start ?Implementation_period_start .
 _:rec tableFile:Is_the_policy_or_measure_related_to_a_Union_policy_ ?Is_the_policy_or_measure_related_to_a_Union_policy_ .
+_:rec tableFile:Union_policy_lookup_only4facets ?Union_policy_lookup_only4facets .
 _:rec tableFile:Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure ?Union_policy_which_resulted_in_the_implementation_of_the_policy_or_measure .
 _:rec tableFile:GHG_s__affected ?GHG_s__affected .
 _:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included ?Projection_scenario_in_which_the_policy_or_measure_is_included .
@@ -146,4 +153,6 @@ _:rec tableFile:Implementation_period_start_clean ?Implementation_period_start_c
 _:rec tableFile:Projection_scenario_in_which_the_policy_or_measure_is_included_clean ?Projection_scenario_in_which_the_policy_or_measure_is_included_clean .
 _:rec tableFile:Is_the_policy_or_measure_related_to_a_Union_policy__clean ?Is_the_policy_or_measure_related_to_a_Union_policy__clean .
 _:rec tableFile:Union_policy_lookup_only4facets_clean ?Union_policy_lookup_only4facets_clean .
+_:rec tableFile:Projected_net_cost_per_year__EUR_ ?Projected_net_cost_per_year__EUR_ .
+_:rec tableFile:Realised_net_cost_per_year__EUR_ ?Realised_net_cost_per_year__EUR_ .
 }
