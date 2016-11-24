@@ -8,11 +8,11 @@ def main(csv_input, csv_output):
     reader = csv.DictReader(csv_input)
     rows = [row for row in reader]
     for row in rows:
-        soi = row.get('Status of implementation', '')
-        ips = row.get('Implementation period start', '')
-        psi = row.get('Projection scenario in which the policy or measure is included', '')
-        ipr = row.get('Is the policy or measure related to a Union policy_', '')
-        upl = row.get('Union_policy_lookup_only4facets', '')
+        soi = row.get('Status_of_implementation', '')
+        ips = row.get('Implementation_period_start', '')
+        psi = row.get('Projection_scenario_in_which_the_policy_or_measure_is_included', '')
+        ipr = row.get('Is_the_policy_or_measure_related_to_a_Union policy_', '') or row.get('Is_the_policy_or_measure_related_to_a_Union_policy_', '')
+        upl = row.get('Union_policy_lookup_only4facets', '') or row.get('Union_policies_lookup_only4facets', '')
 
         soi_clean = "No information"
         ips_clean = "No information"
