@@ -547,7 +547,8 @@
             "listing": {
                 "visible": true,
                 "title": "Link to national report",
-                "pos": 19
+                "pos": 19,
+                "width": "300px"
             },
             "csv_tsv": {
                 "title": "Link to national report",
