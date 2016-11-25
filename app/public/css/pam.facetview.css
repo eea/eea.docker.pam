@@ -17,3 +17,6 @@ a.details_link:visited {
   max-height:45px;
   overflow:hidden;
 }
+td[data-title="Link to national report"]{
+  word-break:break-all;
+}
