@@ -1,4 +1,4 @@
-PREFIX tableFile: <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v4.csv#>
+PREFIX tableFile: <http://semantic.eea.europa.eu/project/pam/pam2016.csv#>
 SELECT 
 concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Country
@@ -78,7 +78,7 @@ concat(?Country, "_", ?ID_of_policy_or_measure) as ?_id
 ?Realised_net_cost_per_year__EUR_
 
 
-FROM <http://semantic.eea.europa.eu/home/szabozo0/pam_2016_v4.csv>
+FROM <http://semantic.eea.europa.eu/project/pam/pam2016.csv>
 WHERE {
 _:rec tableFile:Country ?Country .
 _:rec tableFile:ID_of_policy_or_measure ?ID_of_policy_or_measure .
